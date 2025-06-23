@@ -1,0 +1,151 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|c:\\users\\sam88\\desktop\\dotnet\\byaya\\realestate\\realestate\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|solutionrelative:realestate\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|c:\\users\\sam88\\desktop\\dotnet\\byaya\\realestate\\realestate\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|solutionrelative:realestate\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|c:\\users\\sam88\\desktop\\dotnet\\byaya\\realestate\\realestate\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|solutionrelative:realestate\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|c:\\users\\sam88\\desktop\\dotnet\\byaya\\realestate\\realestate\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|solutionrelative:realestate\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|c:\\users\\sam88\\desktop\\dotnet\\byaya\\realestate\\realestate\\dtos\\auth\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|solutionrelative:realestate\\dtos\\auth\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|c:\\users\\sam88\\desktop\\dotnet\\byaya\\realestate\\realestate\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|solutionrelative:realestate\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|c:\\users\\sam88\\desktop\\dotnet\\byaya\\realestate\\realestate\\dtos\\auth\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|solutionrelative:realestate\\dtos\\auth\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Program.cs",
+              "RelativeDocumentMoniker": "Realestate\\Program.cs",
+              "ToolTip": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Program.cs",
+              "RelativeToolTip": "Realestate\\Program.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAtwDEAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T09:05:03.402Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Interfaces\\IAuthService.cs",
+              "RelativeDocumentMoniker": "Realestate\\Interfaces\\IAuthService.cs",
+              "ToolTip": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Interfaces\\IAuthService.cs",
+              "RelativeToolTip": "Realestate\\Interfaces\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T09:04:15.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "Realestate\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Services\\AuthService.cs",
+              "RelativeToolTip": "Realestate\\Services\\AuthService.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAuwFYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T08:55:45.589Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Realestate\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Realestate\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAQwDoAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T08:55:01.905Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TokenService.cs",
+              "DocumentMoniker": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Services\\TokenService.cs",
+              "RelativeDocumentMoniker": "Realestate\\Services\\TokenService.cs",
+              "ToolTip": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Services\\TokenService.cs",
+              "RelativeToolTip": "Realestate\\Services\\TokenService.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAIA3wDYAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T08:54:30.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AuthResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\DTOs\\Auth\\AuthResponseDto.cs",
+              "RelativeDocumentMoniker": "Realestate\\DTOs\\Auth\\AuthResponseDto.cs",
+              "ToolTip": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\DTOs\\Auth\\AuthResponseDto.cs",
+              "RelativeToolTip": "Realestate\\DTOs\\Auth\\AuthResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T08:53:13.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LoginRequestDto.cs",
+              "DocumentMoniker": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\DTOs\\Auth\\LoginRequestDto.cs",
+              "RelativeDocumentMoniker": "Realestate\\DTOs\\Auth\\LoginRequestDto.cs",
+              "ToolTip": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\DTOs\\Auth\\LoginRequestDto.cs",
+              "RelativeToolTip": "Realestate\\DTOs\\Auth\\LoginRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T08:53:08.945Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
