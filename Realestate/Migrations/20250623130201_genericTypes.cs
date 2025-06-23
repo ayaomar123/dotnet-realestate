@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Realestate.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class genericTypes : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -34,6 +34,10 @@ namespace Realestate.Migrations
                     FNameAr = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LNameEn = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LNameAr = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RefreshToken = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RefreshTokenExpiryTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -52,6 +56,70 @@ namespace Realestate.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Categories",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NameEn = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    NameAr = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categories", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Cities",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NameEn = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    NameAr = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cities", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MyTypes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NameEn = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    NameAr = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MyTypes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PropertyTypes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NameEn = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    NameAr = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PropertyTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -160,6 +228,29 @@ namespace Realestate.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Districts",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CityId = table.Column<int>(type: "int", nullable: false),
+                    NameEn = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    NameAr = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Districts", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Districts_Cities_CityId",
+                        column: x => x.CityId,
+                        principalTable: "Cities",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -198,6 +289,11 @@ namespace Realestate.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Districts_CityId",
+                table: "Districts",
+                column: "CityId");
         }
 
         /// <inheritdoc />
@@ -219,10 +315,25 @@ namespace Realestate.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Categories");
+
+            migrationBuilder.DropTable(
+                name: "Districts");
+
+            migrationBuilder.DropTable(
+                name: "MyTypes");
+
+            migrationBuilder.DropTable(
+                name: "PropertyTypes");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Cities");
         }
     }
 }

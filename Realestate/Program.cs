@@ -50,6 +50,11 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<ICategoryInterface, CategoryService>();
+builder.Services.AddScoped<ICityInterface, CityService>();
+builder.Services.AddScoped<ITypeService, TypeService>();
+builder.Services.AddScoped<IDistrictService, DistrictService>();
+builder.Services.AddScoped<IStatusService, StatusService>();
 
 builder.Services.AddControllers();
 

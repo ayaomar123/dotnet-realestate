@@ -214,6 +214,950 @@
           }
         }
       }
+    },
+    "/api/Category": {
+      "get": {
+        "tags": [
+          "Category"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Category"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "NameAr",
+                  "NameEn"
+                ],
+                "type": "object",
+                "properties": {
+                  "NameEn": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "NameAr": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "Image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "NameEn": {
+                  "style": "form"
+                },
+                "NameAr": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Category/status/{id}": {
+      "put": {
+        "tags": [
+          "Category"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Category/{id}": {
+      "put": {
+        "tags": [
+          "Category"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BaseRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BaseRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BaseRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Category"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/City": {
+      "get": {
+        "tags": [
+          "City"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "City"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "NameAr",
+                  "NameEn"
+                ],
+                "type": "object",
+                "properties": {
+                  "NameEn": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "NameAr": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "Image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "NameEn": {
+                  "style": "form"
+                },
+                "NameAr": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/City/status/{id}": {
+      "put": {
+        "tags": [
+          "City"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/City/{id}": {
+      "put": {
+        "tags": [
+          "City"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BaseRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BaseRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BaseRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "City"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/District": {
+      "get": {
+        "tags": [
+          "District"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "District"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "CityId",
+                  "NameAr",
+                  "NameEn"
+                ],
+                "type": "object",
+                "properties": {
+                  "NameEn": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "NameAr": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "CityId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "NameEn": {
+                  "style": "form"
+                },
+                "NameAr": {
+                  "style": "form"
+                },
+                "CityId": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/District/status/{id}": {
+      "put": {
+        "tags": [
+          "District"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/District/{id}": {
+      "put": {
+        "tags": [
+          "District"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "CityId",
+                  "NameAr",
+                  "NameEn"
+                ],
+                "type": "object",
+                "properties": {
+                  "NameEn": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "NameAr": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "CityId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "NameEn": {
+                  "style": "form"
+                },
+                "NameAr": {
+                  "style": "form"
+                },
+                "CityId": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "District"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/PropertyType": {
+      "get": {
+        "tags": [
+          "PropertyType"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "PropertyType"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "NameAr",
+                  "NameEn"
+                ],
+                "type": "object",
+                "properties": {
+                  "NameEn": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "NameAr": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "Image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "NameEn": {
+                  "style": "form"
+                },
+                "NameAr": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/PropertyType/status/{id}": {
+      "put": {
+        "tags": [
+          "PropertyType"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/PropertyType/{id}": {
+      "put": {
+        "tags": [
+          "PropertyType"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BaseRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BaseRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BaseRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "PropertyType"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Status": {
+      "get": {
+        "tags": [
+          "Status"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Status"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "NameAr",
+                  "NameEn"
+                ],
+                "type": "object",
+                "properties": {
+                  "Color": {
+                    "type": "string"
+                  },
+                  "BackgroundColor": {
+                    "type": "string"
+                  },
+                  "Sort": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "NameEn": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "NameAr": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "Image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Color": {
+                  "style": "form"
+                },
+                "BackgroundColor": {
+                  "style": "form"
+                },
+                "Sort": {
+                  "style": "form"
+                },
+                "NameEn": {
+                  "style": "form"
+                },
+                "NameAr": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Status/status/{id}": {
+      "put": {
+        "tags": [
+          "Status"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Status/{id}": {
+      "put": {
+        "tags": [
+          "Status"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StatusRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StatusRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StatusRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Status"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Type": {
+      "get": {
+        "tags": [
+          "Type"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Type"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "NameAr",
+                  "NameEn"
+                ],
+                "type": "object",
+                "properties": {
+                  "NameEn": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "NameAr": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "Image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "NameEn": {
+                  "style": "form"
+                },
+                "NameAr": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Type/status/{id}": {
+      "put": {
+        "tags": [
+          "Type"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Type/{id}": {
+      "put": {
+        "tags": [
+          "Type"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BaseRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BaseRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BaseRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Type"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -227,6 +1171,31 @@
           },
           "refreshToken": {
             "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BaseRequestDto": {
+        "required": [
+          "nameAr",
+          "nameEn"
+        ],
+        "type": "object",
+        "properties": {
+          "nameEn": {
+            "maxLength": 50,
+            "minLength": 3,
+            "type": "string"
+          },
+          "nameAr": {
+            "maxLength": 50,
+            "minLength": 3,
+            "type": "string"
+          },
+          "image": {
+            "type": "string",
+            "format": "binary",
             "nullable": true
           }
         },
@@ -308,6 +1277,43 @@
           "refreshToken": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StatusRequestDto": {
+        "required": [
+          "nameAr",
+          "nameEn"
+        ],
+        "type": "object",
+        "properties": {
+          "nameEn": {
+            "maxLength": 50,
+            "minLength": 3,
+            "type": "string"
+          },
+          "nameAr": {
+            "maxLength": 50,
+            "minLength": 3,
+            "type": "string"
+          },
+          "image": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "backgroundColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "sort": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
