@@ -55,12 +55,19 @@ builder.Services.AddScoped<ICityInterface, CityService>();
 builder.Services.AddScoped<ITypeService, TypeService>();
 builder.Services.AddScoped<IDistrictService, DistrictService>();
 builder.Services.AddScoped<IStatusService, StatusService>();
+builder.Services.AddScoped<IItemService, ItemService>();
 
 builder.Services.AddControllers();
 
 
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    SeedData.Initialize(services);
+}
 
 app.UseMiddleware<ErrorHandlingMiddleware>();
 

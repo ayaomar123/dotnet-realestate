@@ -12,8 +12,8 @@ using Realestate.Data;
 namespace Realestate.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250623130201_genericTypes")]
-    partial class genericTypes
+    [Migration("20250626061337_images")]
+    partial class images
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -216,7 +216,7 @@ namespace Realestate.Migrations
                     b.ToTable("Cities");
                 });
 
-            modelBuilder.Entity("Realestate.Entities.Disrtict", b =>
+            modelBuilder.Entity("Realestate.Entities.District", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -225,6 +225,9 @@ namespace Realestate.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("CityId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CityId1")
                         .HasColumnType("int");
 
                     b.Property<string>("Image")
@@ -247,7 +250,140 @@ namespace Realestate.Migrations
 
                     b.HasIndex("CityId");
 
+                    b.HasIndex("CityId1");
+
                     b.ToTable("Districts");
+                });
+
+            modelBuilder.Entity("Realestate.Entities.Image", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ItemId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ItemId");
+
+                    b.ToTable("Images");
+                });
+
+            modelBuilder.Entity("Realestate.Entities.Item", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AdNo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AdvertiseNo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CityId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DescriptionAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DistrictId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("HasPassword")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("HasUnits")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("HashPassword")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<double>("Latitude")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Limit")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Longitude")
+                        .HasColumnType("float");
+
+                    b.Property<int>("MyTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NameAr")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("NameEn")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<double>("PricePerMeter")
+                        .HasColumnType("float");
+
+                    b.Property<int>("PropertyTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("RangeTo")
+                        .HasColumnType("float");
+
+                    b.Property<double>("RengeFrom")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Soum")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Space")
+                        .HasColumnType("float");
+
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("StreetWidth")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("CityId");
+
+                    b.HasIndex("DistrictId");
+
+                    b.HasIndex("MyTypeId");
+
+                    b.HasIndex("PropertyTypeId");
+
+                    b.HasIndex("StatusId");
+
+                    b.ToTable("Items");
                 });
 
             modelBuilder.Entity("Realestate.Entities.MyType", b =>
@@ -276,7 +412,7 @@ namespace Realestate.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MyTypes");
+                    b.ToTable("Types");
                 });
 
             modelBuilder.Entity("Realestate.Entities.PropertyType", b =>
@@ -306,6 +442,44 @@ namespace Realestate.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("PropertyTypes");
+                });
+
+            modelBuilder.Entity("Realestate.Entities.Status", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BackgroundColor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Color")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("NameAr")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("NameEn")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<int>("Sort")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Statuses");
                 });
 
             modelBuilder.Entity("Realestate.Entities.User", b =>
@@ -449,20 +623,91 @@ namespace Realestate.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Realestate.Entities.Disrtict", b =>
+            modelBuilder.Entity("Realestate.Entities.District", b =>
                 {
                     b.HasOne("Realestate.Entities.City", "City")
-                        .WithMany("Disrticts")
+                        .WithMany()
                         .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.HasOne("Realestate.Entities.City", null)
+                        .WithMany("Districts")
+                        .HasForeignKey("CityId1");
 
                     b.Navigation("City");
                 });
 
+            modelBuilder.Entity("Realestate.Entities.Image", b =>
+                {
+                    b.HasOne("Realestate.Entities.Item", "Item")
+                        .WithMany("Images")
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Item");
+                });
+
+            modelBuilder.Entity("Realestate.Entities.Item", b =>
+                {
+                    b.HasOne("Realestate.Entities.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Realestate.Entities.City", "City")
+                        .WithMany()
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Realestate.Entities.District", "District")
+                        .WithMany()
+                        .HasForeignKey("DistrictId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Realestate.Entities.MyType", "MyType")
+                        .WithMany()
+                        .HasForeignKey("MyTypeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Realestate.Entities.PropertyType", "PropertyType")
+                        .WithMany()
+                        .HasForeignKey("PropertyTypeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Realestate.Entities.Status", "Status")
+                        .WithMany()
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("City");
+
+                    b.Navigation("District");
+
+                    b.Navigation("MyType");
+
+                    b.Navigation("PropertyType");
+
+                    b.Navigation("Status");
+                });
+
             modelBuilder.Entity("Realestate.Entities.City", b =>
                 {
-                    b.Navigation("Disrticts");
+                    b.Navigation("Districts");
+                });
+
+            modelBuilder.Entity("Realestate.Entities.Item", b =>
+                {
+                    b.Navigation("Images");
                 });
 #pragma warning restore 612, 618
         }

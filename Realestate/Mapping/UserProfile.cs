@@ -2,6 +2,7 @@
 using Realestate.DTOs.Auth;
 using Realestate.DTOs.Category;
 using Realestate.DTOs.District;
+using Realestate.DTOs.Item;
 using Realestate.DTOs.Status;
 using Realestate.Entities;
 
@@ -35,6 +36,20 @@ namespace Realestate.Mapping
 
             CreateMap<StatusRequestDto, Status>().ForMember(dest => dest.Image, opt => opt.Ignore());
             CreateMap<Status, StatusResponseDto>();
+
+            CreateMap<ItemRequestDto, Item>()
+                .ForMember(dest => dest.Image, opt => opt.Ignore())
+                .ForMember(dest => dest.Images, opt => opt.Ignore());
+
+            CreateMap<Item, ItemResponseDto>()
+                .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category != null ? src.Category.NameEn : null))
+                .ForMember(dest => dest.CityName, opt => opt.MapFrom(src => src.City != null ? src.City.NameEn : null))
+                .ForMember(dest => dest.DistrictName, opt => opt.MapFrom(src => src.District != null ? src.District.NameEn : null))
+                .ForMember(dest => dest.MyTypeName, opt => opt.MapFrom(src => src.MyType != null ? src.MyType.NameEn : null))
+                .ForMember(dest => dest.PropertyTypeName, opt => opt.MapFrom(src => src.PropertyType != null ? src.PropertyType.NameEn : null))
+                .ForMember(dest => dest.StatusName, opt => opt.MapFrom(src => src.Status != null ? src.Status.NameEn : null))
+                .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images.Select(i => i.ImageUrl)));
+            ;
         }
     }
 }

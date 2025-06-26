@@ -1,0 +1,17 @@
+wwwroot\images\users\3b52ebca-612b-4104-9979-de030088b711.jpg
+wwwroot\images\categories\90857f12-f1ac-4a8a-bdcd-ce69986decf3.jpg
+wwwroot\images\categories\f8799889-01bd-4a4b-bef5-364a456b324c.jpg
+wwwroot\images\types\5482e4fe-af8b-4d49-bc06-6c2991a1f59d.jpg
+wwwroot\images\categories\a2a8d38b-e7fe-4742-8ff4-4810860d8e6f.jpg
+wwwroot\images\cities\abd5f2ef-49cf-4dcf-8dff-8f7484eab43e.jpg
+wwwroot\images\types\3995fccc-fee6-4a13-aef6-86f1a2210984.jpg
+wwwroot\images\items\27e9c58d-0a85-432a-922f-f447ea964cd9.jpg
+wwwroot\images\items\20c6266e-ff96-48a0-816e-4ce7df864ff6.jpg
+wwwroot\images\items\85dd79d9-6cba-4d3a-84d7-b78157b68e6d.jpg
+wwwroot\images\items\f52e193b-c77a-43cd-9c8c-8dad8e63f307.jpg
+wwwroot\images\items\0d2799da-f07a-42c6-af22-e7d6cf149db7.jpg
+wwwroot\images\items\83fc8cca-86ff-40d5-8517-a98b4a41c1fc.jpg
+wwwroot\images\items\e2876eec-49ab-4847-a997-060d80bb080f.jpg
+wwwroot\images\items\49ba6850-f09a-45e3-bf59-f60c496f7dbb.jpg
+wwwroot\images\items\72136c77-2a79-4651-b264-62d2ce10b338.jpg
+wwwroot\images\items\e36f9317-8568-4322-b13b-96e6e033ee3b.jpg

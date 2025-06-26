@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Realestate.Migrations
 {
     /// <inheritdoc />
-    public partial class genericTypes : Migration
+    public partial class FixCascadeConflict : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -91,22 +91,6 @@ namespace Realestate.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "MyTypes",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    NameEn = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    NameAr = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IsActive = table.Column<bool>(type: "bit", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_MyTypes", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "PropertyTypes",
                 columns: table => new
                 {
@@ -120,6 +104,41 @@ namespace Realestate.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PropertyTypes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Statuses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BackgroundColor = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Sort = table.Column<int>(type: "int", nullable: false),
+                    NameEn = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    NameAr = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Statuses", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Types",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NameEn = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    NameAr = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Types", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -235,6 +254,7 @@ namespace Realestate.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CityId = table.Column<int>(type: "int", nullable: false),
+                    CityId1 = table.Column<int>(type: "int", nullable: true),
                     NameEn = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     NameAr = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -248,7 +268,80 @@ namespace Realestate.Migrations
                         column: x => x.CityId,
                         principalTable: "Cities",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Districts_Cities_CityId1",
+                        column: x => x.CityId1,
+                        principalTable: "Cities",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Items",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    CityId = table.Column<int>(type: "int", nullable: false),
+                    DistrictId = table.Column<int>(type: "int", nullable: false),
+                    MyTypeId = table.Column<int>(type: "int", nullable: false),
+                    PropertyTypeId = table.Column<int>(type: "int", nullable: false),
+                    AdvertiseNo = table.Column<int>(type: "int", nullable: false),
+                    AdNo = table.Column<int>(type: "int", nullable: false),
+                    Latitude = table.Column<double>(type: "float", nullable: false),
+                    Longitude = table.Column<double>(type: "float", nullable: false),
+                    Soum = table.Column<double>(type: "float", nullable: false),
+                    Limit = table.Column<double>(type: "float", nullable: false),
+                    StreetWidth = table.Column<double>(type: "float", nullable: false),
+                    Space = table.Column<double>(type: "float", nullable: false),
+                    PricePerMeter = table.Column<double>(type: "float", nullable: false),
+                    DescriptionEn = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DescriptionAr = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    HasUnits = table.Column<bool>(type: "bit", nullable: false),
+                    RengeFrom = table.Column<double>(type: "float", nullable: false),
+                    RangeTo = table.Column<double>(type: "float", nullable: false),
+                    HasPassword = table.Column<bool>(type: "bit", nullable: false),
+                    HashPassword = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    NameEn = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    NameAr = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Items", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Items_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Items_Cities_CityId",
+                        column: x => x.CityId,
+                        principalTable: "Cities",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Items_Districts_DistrictId",
+                        column: x => x.DistrictId,
+                        principalTable: "Districts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Items_PropertyTypes_PropertyTypeId",
+                        column: x => x.PropertyTypeId,
+                        principalTable: "PropertyTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Items_Types_MyTypeId",
+                        column: x => x.MyTypeId,
+                        principalTable: "Types",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -294,6 +387,36 @@ namespace Realestate.Migrations
                 name: "IX_Districts_CityId",
                 table: "Districts",
                 column: "CityId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Districts_CityId1",
+                table: "Districts",
+                column: "CityId1");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Items_CategoryId",
+                table: "Items",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Items_CityId",
+                table: "Items",
+                column: "CityId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Items_DistrictId",
+                table: "Items",
+                column: "DistrictId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Items_MyTypeId",
+                table: "Items",
+                column: "MyTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Items_PropertyTypeId",
+                table: "Items",
+                column: "PropertyTypeId");
         }
 
         /// <inheritdoc />
@@ -315,22 +438,28 @@ namespace Realestate.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Items");
 
             migrationBuilder.DropTable(
-                name: "Districts");
-
-            migrationBuilder.DropTable(
-                name: "MyTypes");
-
-            migrationBuilder.DropTable(
-                name: "PropertyTypes");
+                name: "Statuses");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Categories");
+
+            migrationBuilder.DropTable(
+                name: "Districts");
+
+            migrationBuilder.DropTable(
+                name: "PropertyTypes");
+
+            migrationBuilder.DropTable(
+                name: "Types");
 
             migrationBuilder.DropTable(
                 name: "Cities");

@@ -12,8 +12,8 @@ using Realestate.Data;
 namespace Realestate.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250623154435_item4")]
-    partial class item4
+    [Migration("20250624105810_FixCascadeConflict")]
+    partial class FixCascadeConflict
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -227,6 +227,9 @@ namespace Realestate.Migrations
                     b.Property<int>("CityId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("CityId1")
+                        .HasColumnType("int");
+
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
@@ -246,6 +249,8 @@ namespace Realestate.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CityId");
+
+                    b.HasIndex("CityId1");
 
                     b.ToTable("Districts");
                 });
@@ -595,10 +600,14 @@ namespace Realestate.Migrations
             modelBuilder.Entity("Realestate.Entities.District", b =>
                 {
                     b.HasOne("Realestate.Entities.City", "City")
-                        .WithMany("Districts")
+                        .WithMany()
                         .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.HasOne("Realestate.Entities.City", null)
+                        .WithMany("Districts")
+                        .HasForeignKey("CityId1");
 
                     b.Navigation("City");
                 });
@@ -608,31 +617,31 @@ namespace Realestate.Migrations
                     b.HasOne("Realestate.Entities.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Realestate.Entities.City", "City")
                         .WithMany()
                         .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Realestate.Entities.District", "District")
                         .WithMany()
                         .HasForeignKey("DistrictId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Realestate.Entities.MyType", "MyType")
                         .WithMany()
                         .HasForeignKey("MyTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Realestate.Entities.PropertyType", "PropertyType")
                         .WithMany()
                         .HasForeignKey("PropertyTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Category");

@@ -9,8 +9,7 @@ using static System.Net.WebRequestMethods;
 
 namespace Realestate.Services;
 
-public class AuthService(ITokenService tokenService,AppDbContext context,
-    IConfiguration config, IMapper _mapper, IHttpContextAccessor _http) : IAuthService
+public class AuthService(ITokenService tokenService,AppDbContext context, IMapper _mapper, IHttpContextAccessor _http) : IAuthService
 {
     public async Task<AuthResponseDto?> LoginAsync(LoginRequestDto request)
     {

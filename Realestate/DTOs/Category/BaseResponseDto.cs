@@ -7,6 +7,7 @@ namespace Realestate.DTOs.Category
         public string NameEn { get; set; }
         public string NameAr { get; set; }
         public string Image { get; set; }
+        public bool IsActive { get; set; }
 
     }
 }

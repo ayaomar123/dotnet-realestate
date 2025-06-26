@@ -224,6 +224,9 @@ namespace Realestate.Migrations
                     b.Property<int>("CityId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("CityId1")
+                        .HasColumnType("int");
+
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
@@ -244,7 +247,30 @@ namespace Realestate.Migrations
 
                     b.HasIndex("CityId");
 
+                    b.HasIndex("CityId1");
+
                     b.ToTable("Districts");
+                });
+
+            modelBuilder.Entity("Realestate.Entities.Image", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ItemId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ItemId");
+
+                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("Realestate.Entities.Item", b =>
@@ -334,6 +360,9 @@ namespace Realestate.Migrations
                     b.Property<double>("Space")
                         .HasColumnType("float");
 
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
+
                     b.Property<double>("StreetWidth")
                         .HasColumnType("float");
 
@@ -348,6 +377,8 @@ namespace Realestate.Migrations
                     b.HasIndex("MyTypeId");
 
                     b.HasIndex("PropertyTypeId");
+
+                    b.HasIndex("StatusId");
 
                     b.ToTable("Items");
                 });
@@ -592,12 +623,27 @@ namespace Realestate.Migrations
             modelBuilder.Entity("Realestate.Entities.District", b =>
                 {
                     b.HasOne("Realestate.Entities.City", "City")
-                        .WithMany("Districts")
+                        .WithMany()
                         .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Realestate.Entities.City", null)
+                        .WithMany("Districts")
+                        .HasForeignKey("CityId1");
+
+                    b.Navigation("City");
+                });
+
+            modelBuilder.Entity("Realestate.Entities.Image", b =>
+                {
+                    b.HasOne("Realestate.Entities.Item", "Item")
+                        .WithMany("Images")
+                        .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("City");
+                    b.Navigation("Item");
                 });
 
             modelBuilder.Entity("Realestate.Entities.Item", b =>
@@ -605,31 +651,37 @@ namespace Realestate.Migrations
                     b.HasOne("Realestate.Entities.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Realestate.Entities.City", "City")
                         .WithMany()
                         .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Realestate.Entities.District", "District")
                         .WithMany()
                         .HasForeignKey("DistrictId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Realestate.Entities.MyType", "MyType")
                         .WithMany()
                         .HasForeignKey("MyTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Realestate.Entities.PropertyType", "PropertyType")
                         .WithMany()
                         .HasForeignKey("PropertyTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Realestate.Entities.Status", "Status")
+                        .WithMany()
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Category");
@@ -641,11 +693,18 @@ namespace Realestate.Migrations
                     b.Navigation("MyType");
 
                     b.Navigation("PropertyType");
+
+                    b.Navigation("Status");
                 });
 
             modelBuilder.Entity("Realestate.Entities.City", b =>
                 {
                     b.Navigation("Districts");
+                });
+
+            modelBuilder.Entity("Realestate.Entities.Item", b =>
+                {
+                    b.Navigation("Images");
                 });
 #pragma warning restore 612, 618
         }

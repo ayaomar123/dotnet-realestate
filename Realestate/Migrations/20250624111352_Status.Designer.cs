@@ -12,8 +12,8 @@ using Realestate.Data;
 namespace Realestate.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250623153402_item")]
-    partial class item
+    [Migration("20250624111352_Status")]
+    partial class Status
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -216,7 +216,7 @@ namespace Realestate.Migrations
                     b.ToTable("Cities");
                 });
 
-            modelBuilder.Entity("Realestate.Entities.Disrtict", b =>
+            modelBuilder.Entity("Realestate.Entities.District", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -225,6 +225,9 @@ namespace Realestate.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("CityId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CityId1")
                         .HasColumnType("int");
 
                     b.Property<string>("Image")
@@ -246,6 +249,8 @@ namespace Realestate.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CityId");
+
+                    b.HasIndex("CityId1");
 
                     b.ToTable("Districts");
                 });
@@ -279,7 +284,7 @@ namespace Realestate.Migrations
                     b.Property<string>("DescriptionEn")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DisrtictId")
+                    b.Property<int>("DistrictId")
                         .HasColumnType("int");
 
                     b.Property<bool>("HasPassword")
@@ -337,6 +342,9 @@ namespace Realestate.Migrations
                     b.Property<double>("Space")
                         .HasColumnType("float");
 
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
+
                     b.Property<double>("StreetWidth")
                         .HasColumnType("float");
 
@@ -346,11 +354,13 @@ namespace Realestate.Migrations
 
                     b.HasIndex("CityId");
 
-                    b.HasIndex("DisrtictId");
+                    b.HasIndex("DistrictId");
 
                     b.HasIndex("MyTypeId");
 
                     b.HasIndex("PropertyTypeId");
+
+                    b.HasIndex("StatusId");
 
                     b.ToTable("Items");
                 });
@@ -592,13 +602,17 @@ namespace Realestate.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Realestate.Entities.Disrtict", b =>
+            modelBuilder.Entity("Realestate.Entities.District", b =>
                 {
                     b.HasOne("Realestate.Entities.City", "City")
-                        .WithMany("Disrticts")
+                        .WithMany()
                         .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.HasOne("Realestate.Entities.City", null)
+                        .WithMany("Districts")
+                        .HasForeignKey("CityId1");
 
                     b.Navigation("City");
                 });
@@ -608,47 +622,55 @@ namespace Realestate.Migrations
                     b.HasOne("Realestate.Entities.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Realestate.Entities.City", "City")
                         .WithMany()
                         .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Realestate.Entities.Disrtict", "Disrtict")
+                    b.HasOne("Realestate.Entities.District", "District")
                         .WithMany()
-                        .HasForeignKey("DisrtictId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("DistrictId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Realestate.Entities.MyType", "MyType")
                         .WithMany()
                         .HasForeignKey("MyTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Realestate.Entities.PropertyType", "PropertyType")
                         .WithMany()
                         .HasForeignKey("PropertyTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Realestate.Entities.Status", "Status")
+                        .WithMany()
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Category");
 
                     b.Navigation("City");
 
-                    b.Navigation("Disrtict");
+                    b.Navigation("District");
 
                     b.Navigation("MyType");
 
                     b.Navigation("PropertyType");
+
+                    b.Navigation("Status");
                 });
 
             modelBuilder.Entity("Realestate.Entities.City", b =>
                 {
-                    b.Navigation("Disrticts");
+                    b.Navigation("Districts");
                 });
 #pragma warning restore 612, 618
         }

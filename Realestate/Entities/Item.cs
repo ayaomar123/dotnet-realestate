@@ -15,6 +15,9 @@ namespace Realestate.Entities
         public int PropertyTypeId { get; set; }
         public PropertyType? PropertyType { get; set; }
 
+        public int StatusId { get; set; }
+        public Status? Status { get; set; }
+
         public int AdvertiseNo { get; set; }
 
         public int AdNo { get; set; }
@@ -39,5 +42,8 @@ namespace Realestate.Entities
         public string? HashPassword { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        public List<Image> Images { get; set; } = new();
+
     }
 }
