@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Realestate.DTOs;
 using Realestate.DTOs.Item;
+using Realestate.DTOs.Paginations;
 using Realestate.Interfaces;
 
 namespace Realestate.Controllers
@@ -10,8 +11,14 @@ namespace Realestate.Controllers
     public class ItemController(IItemService service) : ControllerBase
     {
         [HttpGet]
-        public async Task<IActionResult> GetAll() => Ok(ApiResponse<List<ItemResponseDto>>.Ok(await service.GetAllAsync(), "Fetched Successfully"));
-        
+        public async Task<IActionResult> GetAll([FromQuery] ItemFilterDto filter)
+        {
+            var result = await service.GetAllAsync(filter);
+            return Ok(ApiResponse<PaginatedResponse<ItemResponseDto>>.Ok(result, "Fetched Successfully"));
+        }
+
+
+
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] ItemRequestDto dto)
         {

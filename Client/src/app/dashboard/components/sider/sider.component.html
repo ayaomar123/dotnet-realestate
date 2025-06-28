@@ -1,0 +1,26 @@
+<input id="sidebar-toggle" type="checkbox" class="peer hidden">
+
+<aside
+    class="fixed md:static z-20 top-0 left-0 h-full w-64 bg-white flex-col transform -translate-x-full md:translate-x-0 peer-checked:translate-x-0 transition-transform duration-200 ease-in-out flex">
+    <div class="p-4 text-xl font-bold flex items-center justify-between">
+        <span>My Dashboard</span>
+        <!-- Close button in mobile -->
+        <label for="sidebar-toggle" class="md:hidden cursor-pointer">
+            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </label>
+    </div>
+    <nav class="flex-1 overflow-y-auto">
+        <a href="#" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M3 12l2-2m0 0l7-7 7 7M13 5v6h6"></path>
+            </svg>
+            Home
+        </a>
+
+    </nav>
+    <footer class="p-4 text-sm text-gray-500">
+        &copy; 2025 Company
+    </footer>
+</aside>

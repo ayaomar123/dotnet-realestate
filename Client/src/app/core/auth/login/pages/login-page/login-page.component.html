@@ -1,0 +1,65 @@
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-200 to-indigo-500 p-4">
+    <div class="w-full max-w-md bg-white rounded-xl shadow-lg p-8 space-y-6">
+        <div class="text-center">
+            <img src="https://t3.ftcdn.net/jpg/08/38/58/42/360_F_838584205_dDGwNQ1xJ8GsilZONeQwwM260WoyjNx2.jpg"
+                alt="Logo" class="h-12 mx-auto mb-4" />
+            <h2 class="text-2xl font-bold text-gray-800">Welcome Back</h2>
+            <p class="text-gray-500 text-sm">Login to your account</p>
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onLoginFormSubmitted()" class="space-y-4">
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Email</label>
+                <input formControlName="username" type="email" placeholder="you@example.com"
+                    class="mt-1 w-full rounded-lg border border-gray-300 bg-gray-50 py-2 px-3 text-gray-700 placeholder-gray-400 focus:border-indigo-500 focus:bg-white focus:outline-none focus:ring-1 focus:ring-indigo-500" />
+
+                <div *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.invalid"
+                    class="mt-1 text-sm text-red-600">
+                    <div *ngIf="loginForm.get('username')?.errors?.['required']">
+                        Email is required.
+                    </div>
+                    <div *ngIf="loginForm.get('username')?.errors?.['email']">
+                        Invalid email format.
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Password</label>
+                <input formControlName="password" type="password" placeholder="••••••••"
+                    class="mt-1 w-full rounded-lg border border-gray-300 bg-gray-50 py-2 px-3 text-gray-700 placeholder-gray-400 focus:border-indigo-500 focus:bg-white focus:outline-none focus:ring-1 focus:ring-indigo-500" />
+                <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid"
+                    class="mt-1 text-sm text-red-600">
+                    Password is required. </div>
+                <div *ngIf="errorMessage" class="text-red-600 text-sm mb-2">
+                    {{ errorMessage }} </div>
+            </div>
+
+            <div class="flex items-center justify-between">
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" class="rounded border-gray-300" />
+                    <span class="text-sm text-gray-600">Remember me</span>
+                </label>
+                <a href="#" class="text-sm text-indigo-600 hover:underline">Forgot password?</a>
+            </div>
+            <button [disabled]="loginForm.invalid" type="submit"
+                class="w-full py-2 px-4 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                Sign In
+            </button>
+            <!-- <div class="flex space-x-2">
+                <button type="button"
+                    class="w-1/2 py-2 px-4 flex items-center justify-center border border-gray-300 rounded-md hover:bg-gray-50">
+                    <i class="fab fa-google text-red-500 mr-2"></i> Google
+                </button>
+                <button type="button"
+                    class="w-1/2 py-2 px-4 flex items-center justify-center border border-gray-300 rounded-md hover:bg-gray-50">
+                    <i class="fab fa-facebook text-blue-600 mr-2"></i> Facebook
+                </button>
+            </div> -->
+        </form>
+        <!-- <p class="text-center text-sm text-gray-500">
+            Don't have an account?
+            <a href="#" class="text-indigo-600 hover:underline">Sign up</a>
+        </p> -->
+    </div>
+</div>

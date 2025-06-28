@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Realestate.Data;
 using Realestate.DTOs.Item;
+using Realestate.DTOs.Paginations;
 using Realestate.Entities;
 using Realestate.Interfaces;
 
@@ -9,9 +10,9 @@ namespace Realestate.Services
 {
     public class ItemService(AppDbContext context, IWebHostEnvironment env, IMapper mapper) : IItemService
     {
-        public async Task<List<ItemResponseDto>> GetAllAsync()
+        public async Task<PaginatedResponse<ItemResponseDto>> GetAllAsync(ItemFilterDto filter)
         {
-            var items = await context.Items
+            var query = context.Items
                 .Include(o => o.Category)
                 .Include(o => o.District)
                 .Include(o => o.City)
@@ -19,10 +20,52 @@ namespace Realestate.Services
                 .Include(o => o.PropertyType)
                 .Include(o => o.Status)
                 .Include(o => o.Images)
+                .AsQueryable();
+
+            // Apply filters
+            if (filter.CityId.HasValue)
+                query = query.Where(i => i.CityId == filter.CityId.Value);
+
+            if (filter.CategoryId.HasValue)
+                query = query.Where(i => i.CategoryId == filter.CategoryId.Value);
+
+            if (filter.DistrictId.HasValue)
+                query = query.Where(i => i.DistrictId == filter.DistrictId.Value);
+
+            if (filter.PropertyTypeId.HasValue)
+                query = query.Where(i => i.PropertyTypeId == filter.PropertyTypeId.Value);
+
+            if (filter.StatusId.HasValue)
+                query = query.Where(i => i.StatusId == filter.StatusId.Value);
+
+            if (filter.AdNo.HasValue)
+                query = query.Where(i => i.AdNo == filter.AdNo.Value);
+
+            if (filter.AdvertiseNo.HasValue)
+                query = query.Where(i => i.AdvertiseNo == filter.AdvertiseNo.Value);
+
+            if (!string.IsNullOrWhiteSpace(filter.Keyword))
+                query = query.Where(i =>
+                    i.NameEn!.Contains(filter.Keyword) ||
+                    i.NameAr!.Contains(filter.Keyword) ||
+                    i.AdNo.ToString().Contains(filter.Keyword) ||
+                    i.AdvertiseNo.ToString().Contains(filter.Keyword) ||
+                    i.DescriptionEn!.Contains(filter.Keyword) ||
+                    i.DescriptionAr!.Contains(filter.Keyword));
+
+            var totalCount = await query.CountAsync();
+
+            var items = await query
+                .Skip((filter.PageNumber - 1) * filter.PageSize)
+                .Take(filter.PageSize)
                 .ToListAsync();
 
-            return mapper.Map<List<ItemResponseDto>>(items);
+            var mapped = mapper.Map<List<ItemResponseDto>>(items);
+
+            return new PaginatedResponse<ItemResponseDto>(mapped, totalCount, filter.PageNumber, filter.PageSize);
         }
+
+
 
         public async Task<ItemResponseDto> CreateAsync(ItemRequestDto dto)
         {
@@ -61,11 +104,26 @@ namespace Realestate.Services
             mapper.Map(dto, item);
             if (dto.Image is not null)
             {
+                if (!string.IsNullOrEmpty(item.Image))
+                {
+                    var oldImagePath = Path.Combine(env.WebRootPath, item.Image.TrimStart('/').Replace("/", Path.DirectorySeparatorChar.ToString()));
+                    if (File.Exists(oldImagePath))
+                        File.Delete(oldImagePath);
+                }
                 item.Image = await SaveImageAsync(dto.Image);
             }
 
             if (dto.Images is not null)
             {
+                if (item.Images?.Any() == true)
+        {
+            foreach (var oldImage in item.Images)
+            {
+                var oldPath = Path.Combine(env.WebRootPath, oldImage.ImageUrl.TrimStart('/').Replace("/", Path.DirectorySeparatorChar.ToString()));
+                if (File.Exists(oldPath))
+                    File.Delete(oldPath);
+            }
+        }
                 item.Images = new List<Image>();
 
                 foreach (var file in dto.Images)

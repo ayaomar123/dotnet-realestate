@@ -3,12 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|c:\\users\\sam88\\desktop\\dotnet\\byaya\\realestate\\realestate\\controllers\\statuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|solutionrelative:realestate\\controllers\\statuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|c:\\users\\sam88\\desktop\\dotnet\\byaya\\realestate\\realestate\\data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|solutionrelative:realestate\\data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|c:\\users\\sam88\\desktop\\dotnet\\byaya\\realestate\\realestate\\controllers\\citycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|solutionrelative:realestate\\controllers\\citycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|c:\\users\\sam88\\desktop\\dotnet\\byaya\\realestate\\realestate\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|solutionrelative:realestate\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|c:\\users\\sam88\\desktop\\dotnet\\byaya\\realestate\\realestate\\services\\itemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|solutionrelative:realestate\\services\\itemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|c:\\users\\sam88\\desktop\\dotnet\\byaya\\realestate\\realestate\\interfaces\\iitemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|solutionrelative:realestate\\interfaces\\iitemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|c:\\users\\sam88\\desktop\\dotnet\\byaya\\realestate\\realestate\\dtos\\item\\itemfilterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|solutionrelative:realestate\\dtos\\item\\itemfilterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|c:\\users\\sam88\\desktop\\dotnet\\byaya\\realestate\\realestate\\dtos\\item\\itemrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|solutionrelative:realestate\\dtos\\item\\itemrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|c:\\users\\sam88\\desktop\\dotnet\\byaya\\realestate\\realestate\\controllers\\itemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|solutionrelative:realestate\\controllers\\itemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|c:\\users\\sam88\\desktop\\dotnet\\byaya\\realestate\\realestate\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60ACEB69-11A0-4FDC-8F02-B1CED6071D5F}|Realestate\\Realestate.csproj|solutionrelative:realestate\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,37 +42,114 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "StatusController.cs",
-              "DocumentMoniker": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Controllers\\StatusController.cs",
-              "RelativeDocumentMoniker": "Realestate\\Controllers\\StatusController.cs",
-              "ToolTip": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Controllers\\StatusController.cs",
-              "RelativeToolTip": "Realestate\\Controllers\\StatusController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAyAAAAAAAAAA==",
+              "Title": "SeedData.cs",
+              "DocumentMoniker": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Data\\SeedData.cs",
+              "RelativeDocumentMoniker": "Realestate\\Data\\SeedData.cs",
+              "ToolTip": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Data\\SeedData.cs",
+              "RelativeToolTip": "Realestate\\Data\\SeedData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAawBIAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T07:05:01.69Z",
+              "WhenOpened": "2025-06-28T07:29:55.409Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CityController.cs",
-              "DocumentMoniker": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Controllers\\CityController.cs",
-              "RelativeDocumentMoniker": "Realestate\\Controllers\\CityController.cs",
-              "ToolTip": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Controllers\\CityController.cs",
-              "RelativeToolTip": "Realestate\\Controllers\\CityController.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAvwCwAAABIAAAAAAAAAA==",
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "Realestate\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Services\\AuthService.cs",
+              "RelativeToolTip": "Realestate\\Services\\AuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T06:53:52.111Z",
+              "WhenOpened": "2025-06-28T06:59:20.662Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ItemRequestDto.cs",
+              "DocumentMoniker": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\DTOs\\Item\\ItemRequestDto.cs",
+              "RelativeDocumentMoniker": "Realestate\\DTOs\\Item\\ItemRequestDto.cs",
+              "ToolTip": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\DTOs\\Item\\ItemRequestDto.cs",
+              "RelativeToolTip": "Realestate\\DTOs\\Item\\ItemRequestDto.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAIA6wCMAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T09:52:25.361Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ItemFilterDto.cs",
+              "DocumentMoniker": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\DTOs\\Item\\ItemFilterDto.cs",
+              "RelativeDocumentMoniker": "Realestate\\DTOs\\Item\\ItemFilterDto.cs",
+              "ToolTip": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\DTOs\\Item\\ItemFilterDto.cs",
+              "RelativeToolTip": "Realestate\\DTOs\\Item\\ItemFilterDto.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAgwA0AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T09:44:25.501Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IItemService.cs",
+              "DocumentMoniker": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Interfaces\\IItemService.cs",
+              "RelativeDocumentMoniker": "Realestate\\Interfaces\\IItemService.cs",
+              "ToolTip": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Interfaces\\IItemService.cs",
+              "RelativeToolTip": "Realestate\\Interfaces\\IItemService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T09:41:35.85Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ItemService.cs",
+              "DocumentMoniker": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Services\\ItemService.cs",
+              "RelativeDocumentMoniker": "Realestate\\Services\\ItemService.cs",
+              "ToolTip": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Services\\ItemService.cs",
+              "RelativeToolTip": "Realestate\\Services\\ItemService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T07:14:23.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ItemController.cs",
+              "DocumentMoniker": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Controllers\\ItemController.cs",
+              "RelativeDocumentMoniker": "Realestate\\Controllers\\ItemController.cs",
+              "ToolTip": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Controllers\\ItemController.cs",
+              "RelativeToolTip": "Realestate\\Controllers\\ItemController.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAvwBIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T07:08:45.08Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CategoryService.cs",
+              "DocumentMoniker": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Services\\CategoryService.cs",
+              "RelativeDocumentMoniker": "Realestate\\Services\\CategoryService.cs",
+              "ToolTip": "C:\\Users\\sam88\\Desktop\\dotnet\\byaya\\Realestate\\Realestate\\Services\\CategoryService.cs",
+              "RelativeToolTip": "Realestate\\Services\\CategoryService.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAvwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T07:16:08.71Z"
             }
           ]
         }

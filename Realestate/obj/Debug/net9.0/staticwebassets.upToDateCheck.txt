@@ -15,3 +15,9 @@ wwwroot\images\items\e2876eec-49ab-4847-a997-060d80bb080f.jpg
 wwwroot\images\items\49ba6850-f09a-45e3-bf59-f60c496f7dbb.jpg
 wwwroot\images\items\72136c77-2a79-4651-b264-62d2ce10b338.jpg
 wwwroot\images\items\e36f9317-8568-4322-b13b-96e6e033ee3b.jpg
+wwwroot\images\items\6ba57146-aae9-43c0-8169-f3e7117c64d5.jpg
+wwwroot\images\items\b7b635a9-f7af-41ef-9ffe-a4fcdd70e82b.jpg
+wwwroot\images\items\c85e392a-414c-42eb-a487-57538b6aef82.jpg
+wwwroot\images\items\2a02fbd8-a67d-4ebd-bd47-54df8dcffc21.jpg
+wwwroot\images\items\8027195c-1a14-4165-a9ae-66205996f824.jpg
+wwwroot\images\items\b2b91caf-41db-4363-8833-b0f387720247.jpg

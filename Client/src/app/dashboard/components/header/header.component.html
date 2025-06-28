@@ -1,0 +1,25 @@
+<header class="flex items-center justify-between bg-white p-4 gap-2">
+    <!-- Left: Toggle + Title -->
+    <div class="flex items-center space-x-2">
+        <!-- Toggle button (mobile only) -->
+        <label for="sidebar-toggle" class="md:hidden flex items-center cursor-pointer">
+            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </label>
+        <!-- Page Title -->
+        <span class="text-lg font-semibold text-gray-800">Dashboard</span>
+    </div>
+
+    <!-- Profile Dropdown -->
+    <details class="relative">
+        <summary class="flex items-center cursor-pointer">
+            <img src="https://i.pravatar.cc/40" class="w-8 h-8 rounded-full" alt="User" />
+        </summary>
+        <div class="absolute right-0 mt-2 w-48 bg-white rounded shadow z-10">
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Profile</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Settings</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Logout</a>
+        </div>
+    </details>
+</header>

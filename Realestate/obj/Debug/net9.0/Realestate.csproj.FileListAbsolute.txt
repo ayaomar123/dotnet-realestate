@@ -171,3 +171,4 @@ C:\Users\sam88\Desktop\dotnet\byaya\Realestate\Realestate\obj\Debug\net9.0\ref\R
 C:\Users\sam88\Desktop\dotnet\byaya\Realestate\Realestate\bin\Debug\net9.0\Realestate.staticwebassets.runtime.json
 C:\Users\sam88\Desktop\dotnet\byaya\Realestate\Realestate\bin\Debug\net9.0\FluentValidation.dll
 C:\Users\sam88\Desktop\dotnet\byaya\Realestate\Realestate\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Users\sam88\Desktop\dotnet\byaya\Realestate\Realestate\obj\Debug\net9.0\Realestate.sourcelink.json

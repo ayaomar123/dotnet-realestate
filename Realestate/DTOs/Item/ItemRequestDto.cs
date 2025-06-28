@@ -1,9 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Http;
 
 namespace Realestate.DTOs.Item
 {
-    public class ItemRequestDto
+    public class ItemRequestDto : IValidatableObject
     {
         [Required]
         [StringLength(255)]
@@ -73,5 +72,22 @@ namespace Realestate.DTOs.Item
         public string? HashPassword { get; set; }
 
         public List<IFormFile> Images { get; set; } = new();
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (HasUnits)
+            {
+                if (RengeFrom <= 0)
+                    yield return new ValidationResult("RengeFrom is required.", new[] { nameof(RengeFrom) });
+
+                if (RangeTo <= RengeFrom)
+                    yield return new ValidationResult("RangeTo must be greater than RengeFrom.", new[] { nameof(RangeTo) });
+            }
+
+            if (HasPassword && string.IsNullOrWhiteSpace(HashPassword))
+            {
+                yield return new ValidationResult("HashPassword is required when HasPassword is true.", new[] { nameof(HashPassword) });
+            }
+        }
     }
 }

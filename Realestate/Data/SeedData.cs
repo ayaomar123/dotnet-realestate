@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Realestate.Entities;
 
 namespace Realestate.Data
@@ -10,7 +11,16 @@ namespace Realestate.Data
             using var context = new AppDbContext(
                 serviceProvider.GetRequiredService<DbContextOptions<AppDbContext>>());
 
-            //if (context.Categories.Any()) return;
+            if (context.Categories.Any() ||
+                context.Cities.Any() ||
+                context.Districts.Any() ||
+                context.Types.Any() ||
+                context.PropertyTypes.Any() ||
+                context.Users.Any() ||
+                context.Statuses.Any())
+            {
+                return;
+            }
 
             context.Categories.AddRange(
                 new Category { NameAr = "بيع", NameEn = "Buy"},
@@ -40,6 +50,20 @@ namespace Realestate.Data
             context.Statuses.AddRange(
                 new Status { NameAr = "متاح", NameEn = "Available",Color = "white", BackgroundColor="green",Sort = 1},
                 new Status { NameAr = "مؤجر", NameEn = "Rent", Color = "white", BackgroundColor = "red", Sort = 2 }
+            );
+
+            context.Users.AddRange(
+                new User { 
+                    FNameAr = "مسؤول",
+                    FNameEn= "Super",
+                    LNameAr="النظام",
+                    LNameEn= "Admin",
+                    Email = "Admin@gmail.com",
+                    PasswordHash = new PasswordHasher<User>().HashPassword(null!, "Admin123!"),
+                    PhoneNumber = "1234567890",
+                    Role = "Admin",
+                    UserName = "Admin@gmail.com"    
+                }
             );
 
             context.SaveChanges();
