@@ -173,9 +173,19 @@
         "IsRequired": true
       },
       {
-        "Name": "dto",
-        "Type": "Realestate.DTOs.Category.BaseRequestDto",
-        "IsRequired": true
+        "Name": "NameEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "NameAr",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Image",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -262,9 +272,19 @@
         "IsRequired": true
       },
       {
-        "Name": "dto",
-        "Type": "Realestate.DTOs.Category.BaseRequestDto",
-        "IsRequired": true
+        "Name": "NameEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "NameAr",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Image",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -631,9 +651,134 @@
         "IsRequired": true
       },
       {
-        "Name": "dto",
-        "Type": "Realestate.DTOs.Item.ItemRequestDto",
-        "IsRequired": true
+        "Name": "NameEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "NameAr",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Image",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "CategoryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "CityId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "DistrictId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "MyTypeId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PropertyTypeId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "StatusId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "AdvertiseNo",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "AdNo",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Latitude",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "Longitude",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "Soum",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "Limit",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "StreetWidth",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "Space",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "PricePerMeter",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionAr",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "HasUnits",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "RengeFrom",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "RangeTo",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "HasPassword",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "HashPassword",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Images",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -720,9 +865,19 @@
         "IsRequired": true
       },
       {
-        "Name": "dto",
-        "Type": "Realestate.DTOs.Category.BaseRequestDto",
-        "IsRequired": true
+        "Name": "NameEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "NameAr",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Image",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -824,9 +979,34 @@
         "IsRequired": true
       },
       {
-        "Name": "dto",
-        "Type": "Realestate.DTOs.Status.StatusRequestDto",
-        "IsRequired": true
+        "Name": "Color",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "BackgroundColor",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Sort",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "NameEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "NameAr",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Image",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -913,9 +1093,19 @@
         "IsRequired": true
       },
       {
-        "Name": "dto",
-        "Type": "Realestate.DTOs.Category.BaseRequestDto",
-        "IsRequired": true
+        "Name": "NameEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "NameAr",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Image",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

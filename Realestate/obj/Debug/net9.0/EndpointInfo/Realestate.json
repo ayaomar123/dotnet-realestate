@@ -318,19 +318,40 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/BaseRequestDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BaseRequestDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/BaseRequestDto"
+                "required": [
+                  "NameAr",
+                  "NameEn"
+                ],
+                "type": "object",
+                "properties": {
+                  "NameEn": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "NameAr": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "Image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "NameEn": {
+                  "style": "form"
+                },
+                "NameAr": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -466,19 +487,40 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/BaseRequestDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BaseRequestDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/BaseRequestDto"
+                "required": [
+                  "NameAr",
+                  "NameEn"
+                ],
+                "type": "object",
+                "properties": {
+                  "NameEn": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "NameAr": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "Image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "NameEn": {
+                  "style": "form"
+                },
+                "NameAr": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -1061,19 +1103,213 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/ItemRequestDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ItemRequestDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ItemRequestDto"
+                "required": [
+                  "AdNo",
+                  "AdvertiseNo",
+                  "CategoryId",
+                  "CityId",
+                  "DistrictId",
+                  "Latitude",
+                  "Longitude",
+                  "MyTypeId",
+                  "NameAr",
+                  "NameEn",
+                  "PropertyTypeId",
+                  "StatusId"
+                ],
+                "type": "object",
+                "properties": {
+                  "NameEn": {
+                    "maxLength": 255,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "NameAr": {
+                    "maxLength": 255,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Image": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "CategoryId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "CityId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "DistrictId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "MyTypeId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "PropertyTypeId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "StatusId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "AdvertiseNo": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "AdNo": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Latitude": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Longitude": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Soum": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Limit": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "StreetWidth": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Space": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "PricePerMeter": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "DescriptionEn": {
+                    "maxLength": 2000,
+                    "type": "string"
+                  },
+                  "DescriptionAr": {
+                    "maxLength": 2000,
+                    "type": "string"
+                  },
+                  "HasUnits": {
+                    "type": "boolean"
+                  },
+                  "RengeFrom": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "RangeTo": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "HasPassword": {
+                    "type": "boolean"
+                  },
+                  "HashPassword": {
+                    "maxLength": 255,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Images": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "NameEn": {
+                  "style": "form"
+                },
+                "NameAr": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                },
+                "CategoryId": {
+                  "style": "form"
+                },
+                "CityId": {
+                  "style": "form"
+                },
+                "DistrictId": {
+                  "style": "form"
+                },
+                "MyTypeId": {
+                  "style": "form"
+                },
+                "PropertyTypeId": {
+                  "style": "form"
+                },
+                "StatusId": {
+                  "style": "form"
+                },
+                "AdvertiseNo": {
+                  "style": "form"
+                },
+                "AdNo": {
+                  "style": "form"
+                },
+                "Latitude": {
+                  "style": "form"
+                },
+                "Longitude": {
+                  "style": "form"
+                },
+                "Soum": {
+                  "style": "form"
+                },
+                "Limit": {
+                  "style": "form"
+                },
+                "StreetWidth": {
+                  "style": "form"
+                },
+                "Space": {
+                  "style": "form"
+                },
+                "PricePerMeter": {
+                  "style": "form"
+                },
+                "DescriptionEn": {
+                  "style": "form"
+                },
+                "DescriptionAr": {
+                  "style": "form"
+                },
+                "HasUnits": {
+                  "style": "form"
+                },
+                "RengeFrom": {
+                  "style": "form"
+                },
+                "RangeTo": {
+                  "style": "form"
+                },
+                "HasPassword": {
+                  "style": "form"
+                },
+                "HashPassword": {
+                  "style": "form"
+                },
+                "Images": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -1209,19 +1445,40 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/BaseRequestDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BaseRequestDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/BaseRequestDto"
+                "required": [
+                  "NameAr",
+                  "NameEn"
+                ],
+                "type": "object",
+                "properties": {
+                  "NameEn": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "NameAr": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "Image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "NameEn": {
+                  "style": "form"
+                },
+                "NameAr": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -1376,19 +1633,59 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/StatusRequestDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/StatusRequestDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/StatusRequestDto"
+                "required": [
+                  "NameAr",
+                  "NameEn"
+                ],
+                "type": "object",
+                "properties": {
+                  "Color": {
+                    "type": "string"
+                  },
+                  "BackgroundColor": {
+                    "type": "string"
+                  },
+                  "Sort": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "NameEn": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "NameAr": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "Image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Color": {
+                  "style": "form"
+                },
+                "BackgroundColor": {
+                  "style": "form"
+                },
+                "Sort": {
+                  "style": "form"
+                },
+                "NameEn": {
+                  "style": "form"
+                },
+                "NameAr": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -1524,19 +1821,40 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/BaseRequestDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BaseRequestDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/BaseRequestDto"
+                "required": [
+                  "NameAr",
+                  "NameEn"
+                ],
+                "type": "object",
+                "properties": {
+                  "NameEn": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "NameAr": {
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "Image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "NameEn": {
+                  "style": "form"
+                },
+                "NameAr": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -1581,164 +1899,6 @@
           },
           "refreshToken": {
             "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "BaseRequestDto": {
-        "required": [
-          "nameAr",
-          "nameEn"
-        ],
-        "type": "object",
-        "properties": {
-          "nameEn": {
-            "maxLength": 50,
-            "minLength": 3,
-            "type": "string"
-          },
-          "nameAr": {
-            "maxLength": 50,
-            "minLength": 3,
-            "type": "string"
-          },
-          "image": {
-            "type": "string",
-            "format": "binary",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ItemRequestDto": {
-        "required": [
-          "adNo",
-          "advertiseNo",
-          "categoryId",
-          "cityId",
-          "districtId",
-          "latitude",
-          "longitude",
-          "myTypeId",
-          "nameAr",
-          "nameEn",
-          "propertyTypeId",
-          "statusId"
-        ],
-        "type": "object",
-        "properties": {
-          "nameEn": {
-            "maxLength": 255,
-            "minLength": 0,
-            "type": "string"
-          },
-          "nameAr": {
-            "maxLength": 255,
-            "minLength": 0,
-            "type": "string"
-          },
-          "image": {
-            "type": "string",
-            "format": "binary",
-            "nullable": true
-          },
-          "categoryId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "cityId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "districtId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "myTypeId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "propertyTypeId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "statusId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "advertiseNo": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "adNo": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "latitude": {
-            "type": "number",
-            "format": "double"
-          },
-          "longitude": {
-            "type": "number",
-            "format": "double"
-          },
-          "soum": {
-            "type": "number",
-            "format": "double"
-          },
-          "limit": {
-            "type": "number",
-            "format": "double"
-          },
-          "streetWidth": {
-            "type": "number",
-            "format": "double"
-          },
-          "space": {
-            "type": "number",
-            "format": "double"
-          },
-          "pricePerMeter": {
-            "type": "number",
-            "format": "double"
-          },
-          "descriptionEn": {
-            "maxLength": 2000,
-            "type": "string",
-            "nullable": true
-          },
-          "descriptionAr": {
-            "maxLength": 2000,
-            "type": "string",
-            "nullable": true
-          },
-          "hasUnits": {
-            "type": "boolean"
-          },
-          "rengeFrom": {
-            "type": "number",
-            "format": "double"
-          },
-          "rangeTo": {
-            "type": "number",
-            "format": "double"
-          },
-          "hasPassword": {
-            "type": "boolean"
-          },
-          "hashPassword": {
-            "maxLength": 255,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "images": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "binary"
-            },
             "nullable": true
           }
         },
@@ -1820,43 +1980,6 @@
           "refreshToken": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "StatusRequestDto": {
-        "required": [
-          "nameAr",
-          "nameEn"
-        ],
-        "type": "object",
-        "properties": {
-          "nameEn": {
-            "maxLength": 50,
-            "minLength": 3,
-            "type": "string"
-          },
-          "nameAr": {
-            "maxLength": 50,
-            "minLength": 3,
-            "type": "string"
-          },
-          "image": {
-            "type": "string",
-            "format": "binary",
-            "nullable": true
-          },
-          "color": {
-            "type": "string",
-            "nullable": true
-          },
-          "backgroundColor": {
-            "type": "string",
-            "nullable": true
-          },
-          "sort": {
-            "type": "integer",
-            "format": "int32"
           }
         },
         "additionalProperties": false

@@ -74,7 +74,7 @@ namespace Realestate.Services
             if (file == null || file.Length == 0)
                 throw new ArgumentException("File is required.");
 
-            string uploadsPath = Path.Combine(env.WebRootPath, "images/types");
+            string uploadsPath = Path.Combine(env.WebRootPath, "images/districts");
 
             if (!Directory.Exists(uploadsPath))
                 Directory.CreateDirectory(uploadsPath);
@@ -85,7 +85,7 @@ namespace Realestate.Services
             using var stream = new FileStream(fullPath, FileMode.Create);
             await file.CopyToAsync(stream);
 
-            return $"/uploads/categories/{fileName}";
+            return $"images/districts/{fileName}";
         }
     }
 }

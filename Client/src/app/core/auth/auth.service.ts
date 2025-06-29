@@ -44,22 +44,23 @@ export class AuthService {
           const loginSuccessData = data as LoginSuccess;
           this.storeTokens(loginSuccessData);
           this.scheduleTokenRefresh(loginSuccessData.data.accessToken);
-          this.router.navigate(['/']);
+          this.router.navigate(['/admin']);
         })
       );
   }
 
   logout(): void {
-    // if you don't have any backend route to invalidate the refresh token
-    // then just remove localStorage items and redirect to login route
     const refresh_token = localStorage.getItem('refresh_token');
-    this.http.post<LoginResponse>(`${environment.apiUrl}/token/invalidate`, { refresh_token }, this.CONTEXT)
+    /*this.http.post<LoginResponse>(`${environment.apiUrl}/token/invalidate`, { refresh_token }, this.CONTEXT)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
         localStorage.removeItem('token');
         localStorage.removeItem('refresh_token');
         this.router.navigate(['/login']);
-      });
+      });*/
+    localStorage.removeItem('token');
+    localStorage.removeItem('refresh_token');
+    this.router.navigate(['/login']);
   }
 
   storeTokens(data: LoginSuccess): void {

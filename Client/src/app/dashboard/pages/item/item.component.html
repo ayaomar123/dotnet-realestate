@@ -1,0 +1,121 @@
+<div class="fixed top-4 right-4 z-50 space-y-2">
+    <div *ngFor="let notification of notifications" [ngClass]="{
+        'bg-green-100 border-green-400 text-green-800': notification.type === 'success',
+        'bg-red-100 border-red-400 text-red-800': notification.type === 'error'
+      }" class="px-4 py-2 border rounded-lg shadow transition-all duration-300">
+        {{ notification.message }}
+    </div>
+</div>
+
+
+<div class="mx-auto p-4">
+    <div class="bg-white rounded-lg shadow border border-gray-200 overflow-hidden">
+        <!-- Card Header -->
+        <div class="px-6 py-4 flex items-center justify-between">
+            <h2 class="text-lg font-semibold text-gray-800">{{title}}</h2>
+            <button routerLink="/admin/items/create"
+                class="inline-flex items-center justify-center w-8 h-8 bg-green-500 text-white rounded hover:bg-green-600"
+                title="Create">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"></path>
+                </svg>
+            </button>
+
+        </div>
+        <!-- Table -->
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
+                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Image</th>
+                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Name (EN)</th>
+                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Name (AR)</th>
+                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Catgeory</th>
+                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Address</th>
+                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Property Type</th>
+                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Type</th>
+                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    <!-- Example Row -->
+                    @for (item of data; track $index) {
+                    <tr>
+                        <td class="px-4 py-3 text-sm text-gray-700">{{$index+1}}</td>
+                        <td class="px-4 py-3">
+                            <img [src]="getImageUrl(item.image)" alt="Item" class="w-10 h-10 rounded object-cover">
+                        </td>
+                        <td class="px-4 py-3 text-sm text-gray-700">{{item.nameEn}}</td>
+                        <td class="px-4 py-3 text-sm text-gray-700">{{item.nameAr}}</td>
+                        <td class="px-4 py-3 text-sm text-gray-700">{{item.categoryName}}</td>
+                        <td class="px-4 py-3 text-sm text-gray-700">{{item.cityName}}</td>
+                        <td class="px-4 py-3 text-sm text-gray-700">{{item.myTypeName}}</td>
+                        <td class="px-4 py-3 text-sm text-gray-700">{{item.propertyTypeName}}</td>
+                        <td class="px-4 py-3 text-sm text-gray-700">{{item.statusName}}</td>
+
+                        <td class="px-4 py-3 flex space-x-2">
+                            <!-- Change Status (Eye) -->
+                            <button (click)="changeStatus(item)"
+                                [ngClass]="item.isActive ? 'bg-green-500 hover:bg-green-600' : 'bg-gray-500 hover:bg-gray-600'"
+                                class="inline-flex items-center justify-center w-8 h-8 text-white rounded"
+                                [title]="item.isActive ? 'تعطيل' : 'تفعيل'">
+                                <ng-container *ngIf="item.isActive; else inactiveIcon">
+                                    <!-- Eye Open Icon -->
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                                        </path>
+                                    </svg>
+                                </ng-container>
+                                <ng-template #inactiveIcon>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M13.875 18.825A10.05 10.05 0 0112 19c-4.477 0-8.268-2.943-9.542-7a9.964 9.964 0 012.042-3.368M6.147 6.147A9.956 9.956 0 0112 5c4.477 0 8.268 2.943 9.542 7a9.963 9.963 0 01-4.043 5.197M15 12a3 3 0 11-6 0 3 3 0 016 0zM3 3l18 18">
+                                        </path>
+                                    </svg>
+                                </ng-template>
+                            </button>
+
+
+                            <!-- Edit (Pencil) -->
+                            <button
+                                class="inline-flex items-center justify-center w-8 h-8 bg-blue-500 text-white rounded hover:bg-blue-600"
+                                title="Edit">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M11 5h6m2 2v12a2 2 0 01-2 2H7a2 2 0 01-2-2V7a2 2 0 012-2h2"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 3v4a1 1 0 001 1h4">
+                                    </path>
+                                </svg>
+                            </button>
+
+                            <!-- Delete (Trash) -->
+                            <button (click)="deleteItem(item.id)"
+                                class="inline-flex items-center justify-center w-8 h-8 bg-red-500 text-white rounded hover:bg-red-600"
+                                title="Delete">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M9 7h6m-6 0V4h6v3">
+                                    </path>
+                                </svg>
+                            </button>
+                        </td>
+
+
+                    </tr>
+                    }
+
+                    <!-- Add more rows here as needed -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

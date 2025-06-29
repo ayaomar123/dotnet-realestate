@@ -1,0 +1,19 @@
+<div *ngIf="visible"
+    class="fixed inset-0 bg-gray-200 bg-opacity-50 z-50 flex justify-center items-center p-4 overflow-y-auto">
+    <div class="bg-white w-full max-w-xl max-h-[90vh] overflow-hidden rounded-xl shadow-xl relative flex flex-col">
+
+        <!-- Close Button -->
+        <button (click)="close()" class="absolute top-3 right-3 text-gray-400 hover:text-red-600 text-xl font-bold">
+            &times;
+        </button>
+
+        <!-- Modal Title -->
+        <h2 class="text-2xl font-semibold text-gray-800 p-4 pb-0"> {{ title }} </h2>
+
+        <!-- Modal Body (scrollable) -->
+        <div class="p-4 overflow-y-auto flex-1">
+            <ng-content></ng-content>
+        </div>
+
+    </div>
+</div>

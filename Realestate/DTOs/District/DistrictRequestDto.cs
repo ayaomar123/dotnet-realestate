@@ -16,7 +16,7 @@ namespace Realestate.DTOs.District
         public string NameAr { get; set; }
         [Required]
         public int CityId { get; set; }
-        public IFormFile Image { get; set; }
+        public IFormFile? Image { get; set; }
 
     }
 }

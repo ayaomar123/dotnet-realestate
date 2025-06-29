@@ -29,7 +29,7 @@ namespace Realestate.Controllers
 
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] StatusRequestDto dto)
+        public async Task<IActionResult> Update(int id, [FromForm] StatusRequestDto dto)
         {
             var item = await service.UpdateAsync(id, dto);
             return item == null ? BadRequest(ApiResponse<string>.Fail("Not found.")) : Ok(ApiResponse<StatusResponseDto>.Ok(item, "updated successfully."));

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Realestate.DTOs;
-using Realestate.DTOs.Auth;
 using Realestate.DTOs.Category;
 using Realestate.Interfaces;
 
@@ -8,24 +7,19 @@ namespace Realestate.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoryController(ICategoryInterface service) : ControllerBase
+    public class CategoryController(ICategoryService service) : ControllerBase
     {
         [HttpGet]
-        public async Task<IActionResult> GetAll()
-        {
-            var result = await service.GetAllAsync();
-            return Ok(ApiResponse<List<BaseResponseDto>>.Ok(result, "Fetched Successfully"));
-        }
+        public async Task<IActionResult> GetAll() => Ok(ApiResponse<List<BaseResponseDto>>.Ok(await service.GetAllAsync(), "Fetched Successfully"));
+
 
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] BaseRequestDto dto)
         {
             var created = await service.CreateAsync(dto);
             var response = ApiResponse<BaseResponseDto>.Ok(created, "Created Successfully");
-
             return CreatedAtAction(nameof(GetAll), new { id = created.Id }, response);
         }
-
 
         [HttpPut("status/{id}")]
         public async Task<IActionResult> UpdateBase(int id)
@@ -34,12 +28,14 @@ namespace Realestate.Controllers
             return item == null ? BadRequest(ApiResponse<string>.Fail("Not found.")) : Ok(ApiResponse<BaseResponseDto>.Ok(item, "updated successfully."));
         }
 
+
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] BaseRequestDto dto)
+        public async Task<IActionResult> Update(int id, [FromForm] BaseRequestDto dto)
         {
             var item = await service.UpdateAsync(id, dto);
             return item == null ? BadRequest(ApiResponse<string>.Fail("Not found.")) : Ok(ApiResponse<BaseResponseDto>.Ok(item, "updated successfully."));
         }
+
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)

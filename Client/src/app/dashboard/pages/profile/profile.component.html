@@ -1,0 +1,88 @@
+<div class="max-w mx-auto bg-white border border-gray-200 rounded-lg shadow p-6 space-y-6">
+    <!-- Title -->
+    <h2 class="text-xl font-semibold text-gray-800">Profile</h2>
+
+    <form [formGroup]="form">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Avatar -->
+            <div class="flex flex-col items-center space-y-2">
+                <div class="relative w-24 h-24 rounded-full overflow-hidden border border-gray-300">
+                    <img [src]="previewUrl || 'https://randomuser.me/api/portraits/men/75.jpg'" alt="Avatar"
+                        class="object-cover w-full h-full" />
+                    <!-- Overlay uploader -->
+                    <label
+                        class="absolute inset-0 bg-purple-200 bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition cursor-pointer">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 16v1a2 2 0 002 2h3l3 3V3L9 6H6a2 2 0 00-2 2v1" />
+                        </svg>
+                        <input type="file" (change)="onFileSelected($event)" accept="image/*" class="hidden" />
+                    </label>
+                </div>
+                <p class="text-xs text-gray-500">Allowed file types: PNG, JPG, JPEG.</p>
+            </div>
+
+            <!-- Customer Info -->
+            <div class="md:col-span-2 space-y-4">
+                <div class="flex justify-between gap-5">
+                    <div class="w-100">
+                        <label class="block text-sm font-medium text-gray-700">First Name (en)</label>
+                        <input type="text" formControlName="fNameEn"
+                            class="mt-1 w-full border border-gray-300 rounded px-3 py-2 bg-gray-50 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="w-100">
+                        <label class="block text-sm font-medium text-gray-700">Last Name (en)</label>
+                        <input type="text" formControlName="lNameEn"
+                            class="mt-1 w-full border border-gray-300 rounded px-3 py-2 bg-gray-50 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="flex justify-between gap-5">
+                    <div class="w-100">
+                        <label class="block text-sm font-medium text-gray-700">First Name (ar)</label>
+                        <input type="text" formControlName="fNameAr"
+                            class="mt-1 w-full border border-gray-300 rounded px-3 py-2 bg-gray-50 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="w-100">
+                        <label class="block text-sm font-medium text-gray-700">Last Name (ar)</label>
+                        <input type="text" formControlName="lNameAr"
+                            class="mt-1 w-full border border-gray-300 rounded px-3 py-2 bg-gray-50 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="flex justify-between gap-5">
+                    <div class="w-100">
+                        <label class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="text" formControlName="email"
+                            class="mt-1 w-full border border-gray-300 rounded px-3 py-2 bg-gray-400 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="w-100">
+                        <label class="block text-sm font-medium text-gray-700">Phone number</label>
+                        <input type="text" formControlName="phone"
+                            class="mt-1 w-full border border-gray-300 rounded px-3 py-2 bg-gray-50 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+
+                <div class="flex justify-between gap-5">
+                    <div class="w-100">
+                        <label class="block text-sm font-medium text-gray-700">Username</label>
+                        <input type="text" formControlName="username"
+                            class="mt-1 w-full border border-gray-300 rounded px-3 py-2 bg-gray-50 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="w-100">
+                        <label class="block text-sm font-medium text-gray-700">Role</label>
+                        <input type="text" formControlName="role"
+                            class="mt-1 w-full border border-gray-300 rounded px-3 py-2 bg-gray-50 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Save Button -->
+        <div class="flex justify-end pt-4">
+            <button
+                class="inline-flex items-center px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded shadow transition">
+                Save Changes
+            </button>
+        </div>
+    </form>
+</div>

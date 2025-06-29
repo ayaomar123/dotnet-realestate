@@ -1,6 +1,7 @@
 ﻿
 
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Realestate.Data;
 using Realestate.DTOs.Category;
 using Realestate.Entities;
@@ -8,41 +9,85 @@ using Realestate.Interfaces;
 
 namespace Realestate.Services
 {
-    public class CategoryService : GenericCrudBaseService<Category, BaseRequestDto, BaseResponseDto>, ICategoryInterface
+    public class CategoryService(AppDbContext context, IWebHostEnvironment env, IMapper mapper) : ICategoryService
     {
-        public CategoryService(AppDbContext context, IWebHostEnvironment env, IMapper mapper)
-            : base(context, env, mapper)
+
+
+        public async Task<List<BaseResponseDto>> GetAllAsync()
         {
+            var types = await context.Categories.ToListAsync();
+
+            return mapper.Map<List<BaseResponseDto>>(types);
+        }
+
+        public async Task<BaseResponseDto> CreateAsync(BaseRequestDto dto)
+        {
+            var item = mapper.Map<Category>(dto);
+
+            if (dto.Image is not null)
+            {
+                item.Image = await SaveImageAsync(dto.Image);
+            }
+
+            context.Categories.Add(item);
+            await context.SaveChangesAsync();
+
+            return mapper.Map<BaseResponseDto>(item);
+        }
+
+        public async Task<BaseResponseDto?> UpdateAsync(int id, BaseRequestDto dto)
+        {
+            var item = await context.Categories.FindAsync(id); ;
+            if (item == null) return null;
+
+            mapper.Map(dto, item);
+            if (dto.Image is not null)
+            {
+                item.Image = await SaveImageAsync(dto.Image);
+            }
+
+            await context.SaveChangesAsync();
+
+            return mapper.Map<BaseResponseDto>(item);
         }
 
         public async Task<BaseResponseDto?> UpdateBaseAsync(int id)
         {
-            var category = await _dbSet.FindAsync(id);
-            if (category == null) return null;
+            var item = await context.Categories.FindAsync(id); ;
+            if (item == null)
+                return null;
+            item.IsActive = !item.IsActive;
+            await context.SaveChangesAsync();
 
-            category.IsActive = !category.IsActive;
-            await _context.SaveChangesAsync();
-            return _mapper.Map<BaseResponseDto>(category);
+            return mapper.Map<BaseResponseDto>(item);
+        }
+        public async Task<bool> DeleteAsync(int id)
+        {
+            var item = await context.Categories.FindAsync(id);
+            if (item == null) return false;
+
+            context.Categories.Remove(item);
+            await context.SaveChangesAsync();
+            return true;
         }
 
-
-        protected override async Task HandleFileUploadAsync(BaseRequestDto dto, Category entity)
+        private async Task<string> SaveImageAsync(IFormFile file)
         {
-            if (dto.Image is not null)
-            {
-                string folder = "images/categories";
-                var uploadsPath = Path.Combine(_env.WebRootPath, folder);
-                if (!Directory.Exists(uploadsPath))
-                    Directory.CreateDirectory(uploadsPath);
+            if (file == null || file.Length == 0)
+                throw new ArgumentException("File is required.");
 
-                var fileName = Guid.NewGuid() + Path.GetExtension(dto.Image.FileName);
-                var fullPath = Path.Combine(uploadsPath, fileName);
+            string uploadsPath = Path.Combine(env.WebRootPath, "images/categories");
 
-                using var stream = new FileStream(fullPath, FileMode.Create);
-                await dto.Image.CopyToAsync(stream);
+            if (!Directory.Exists(uploadsPath))
+                Directory.CreateDirectory(uploadsPath);
 
-                entity.Image = $"/{folder}/{fileName}".Replace("\\", "/");
-            }
+            string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+            string fullPath = Path.Combine(uploadsPath, fileName);
+
+            using var stream = new FileStream(fullPath, FileMode.Create);
+            await file.CopyToAsync(stream);
+
+            return $"images/categories/{fileName}";
         }
     }
 

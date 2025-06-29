@@ -7,7 +7,7 @@ namespace Realestate.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CityController(ICityInterface service) : ControllerBase
+    public class CityController(ICityService service) : ControllerBase
     {
         [HttpGet]
         public async Task<IActionResult> GetAll() => Ok(ApiResponse<List<BaseResponseDto>>.Ok(await service.GetAllAsync(), "Fetched Successfully"));
@@ -30,7 +30,7 @@ namespace Realestate.Controllers
 
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] BaseRequestDto dto)
+        public async Task<IActionResult> Update(int id, [FromForm] BaseRequestDto dto)
         {
             var item = await service.UpdateAsync(id, dto);
             return item == null ? BadRequest(ApiResponse<string>.Fail("Not found.")) : Ok(ApiResponse<BaseResponseDto>.Ok(item, "updated successfully."));

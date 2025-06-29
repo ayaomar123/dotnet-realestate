@@ -86,7 +86,7 @@ namespace Realestate.Services
             using var stream = new FileStream(fullPath, FileMode.Create);
             await file.CopyToAsync(stream);
 
-            return $"/images/statuses/{fileName}";
+            return $"images/statuses/{fileName}";
         }
     }
 }
