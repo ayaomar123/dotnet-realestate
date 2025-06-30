@@ -10,7 +10,7 @@ namespace Realestate.Interfaces
 
 
         Task<ItemResponseDto> CreateAsync(ItemRequestDto dto);
-        Task<ItemResponseDto?> UpdateAsync(int id, ItemRequestDto dto);
+        Task<ItemResponseDto?> UpdateAsync(int id, ItemUpdateRequestDto dto);
         Task<ItemResponseDto?> UpdateBaseAsync(int id);
         Task<bool> DeleteAsync(int id);
     }

@@ -5,6 +5,11 @@ import { LayoutComponent } from './dashboard/components/layout/layout.component'
 
 export const routes: Routes = [
     {
+        path: '',
+        redirectTo: 'admin/home',
+        pathMatch: 'full'
+    },
+    {
         path: 'admin',
         component: LayoutComponent,
         canActivate: [authGuard],

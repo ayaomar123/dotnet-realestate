@@ -1,5 +1,4 @@
-
-<div class="space-y-5 mb-5 bg-white rounded-xl shadow-sm">
+<div class="space-y-5 mb-5 bg-white rounded-lg shadow-sm">
 
     <!-- المعاينة -->
     <div *ngIf="previewUrl" class="w-full h-48 overflow-hidden rounded-md border border-gray-300">
@@ -7,8 +6,9 @@
     </div>
 
     <!-- اختيار صورة -->
-    <label
-        class="block w-full text-center cursor-pointer border border-dashed border-gray-400 rounded-md px-4 py-3 text-gray-600 hover:bg-gray-50 transition duration-200 ease-in-out">
+    <label class="block w-full text-center cursor-pointer border border-dashed
+         border-gray-400 rounded-lg px-4 py-3 text-gray-600
+          hover:bg-gray-50 transition duration-200 ease-in-out">
         <span class="block text-sm font-medium">Click or drag to upload an image</span>
         <input type="file" (change)="onFileSelected($event)" accept="image/*" class="hidden" />
     </label>

@@ -41,6 +41,19 @@ namespace Realestate.Mapping
                 .ForMember(dest => dest.Image, opt => opt.Ignore())
                 .ForMember(dest => dest.Images, opt => opt.Ignore());
 
+            CreateMap<ItemUpdateRequestDto, Item>()
+                .ForMember(dest => dest.Image, opt => opt.Ignore())
+                .ForMember(dest => dest.Images, opt => opt.Ignore())
+                .ForMember(dest => dest.CategoryId, opt => opt.Ignore())
+                .ForMember(dest => dest.CityId, opt => opt.Ignore())
+                .ForMember(dest => dest.DistrictId, opt => opt.Ignore())
+                .ForMember(dest => dest.MyTypeId, opt => opt.Ignore())
+                .ForMember(dest => dest.PropertyTypeId, opt => opt.Ignore())
+                .ForMember(dest => dest.StatusId, opt => opt.Ignore())
+                .ForMember(dest => dest.AdvertiseNo, opt => opt.Ignore())
+                .ForMember(dest => dest.AdNo, opt => opt.Ignore())
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+
             CreateMap<Item, ItemResponseDto>()
                 .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category != null ? src.Category.NameEn : null))
                 .ForMember(dest => dest.CityName, opt => opt.MapFrom(src => src.City != null ? src.City.NameEn : null))

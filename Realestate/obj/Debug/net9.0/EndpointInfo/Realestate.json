@@ -852,8 +852,6 @@
                   "CategoryId",
                   "CityId",
                   "DistrictId",
-                  "Latitude",
-                  "Longitude",
                   "MyTypeId",
                   "NameAr",
                   "NameEn",
@@ -1086,7 +1084,7 @@
       }
     },
     "/api/Item/{id}": {
-      "put": {
+      "patch": {
         "tags": [
           "Item"
         ],
@@ -1105,20 +1103,6 @@
           "content": {
             "multipart/form-data": {
               "schema": {
-                "required": [
-                  "AdNo",
-                  "AdvertiseNo",
-                  "CategoryId",
-                  "CityId",
-                  "DistrictId",
-                  "Latitude",
-                  "Longitude",
-                  "MyTypeId",
-                  "NameAr",
-                  "NameEn",
-                  "PropertyTypeId",
-                  "StatusId"
-                ],
                 "type": "object",
                 "properties": {
                   "NameEn": {

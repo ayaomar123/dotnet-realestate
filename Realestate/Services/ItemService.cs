@@ -94,7 +94,7 @@ namespace Realestate.Services
             return mapper.Map<ItemResponseDto>(item);
         }
 
-        public async Task<ItemResponseDto?> UpdateAsync(int id, ItemRequestDto dto)
+        public async Task<ItemResponseDto?> UpdateAsync(int id, ItemUpdateRequestDto dto)
         {
             var item = await context
                                 .Items.Include(i => i.Images)
@@ -102,6 +102,81 @@ namespace Realestate.Services
             if (item == null) return null;
 
             mapper.Map(dto, item);
+
+            if (dto.CategoryId.HasValue)
+            {
+                if (dto.CategoryId.Value <= 0)
+                    throw new InvalidOperationException("رقم الفئة غير صالح.");
+
+                var categoryExists = await context.Categories.AnyAsync(c => c.Id == dto.CategoryId.Value);
+                if (!categoryExists)
+                    throw new InvalidOperationException($"الفئة {dto.CategoryId.Value} غير موجودة.");
+
+                item.CategoryId = dto.CategoryId.Value;
+            }
+            if (dto.CityId.HasValue)
+            {
+                if (dto.CityId.Value <= 0)
+                    throw new InvalidOperationException("رقم المدينة غير صالح.");
+                var cityExists = await context.Cities.AnyAsync(c => c.Id == dto.CityId.Value);
+                if (!cityExists)
+                    throw new InvalidOperationException($"المدينة {dto.CityId.Value} غير موجودة.");
+                item.CityId = dto.CityId.Value;
+            }
+            if (dto.DistrictId.HasValue)
+            {
+                if (dto.DistrictId.Value <= 0)
+                    throw new InvalidOperationException("رقم المنطقة غير صالح.");
+                var districtExists = await context.Districts.AnyAsync(d => d.Id == dto.DistrictId.Value);
+                if (!districtExists)
+                    throw new InvalidOperationException($"المنطقة {dto.DistrictId.Value} غير موجودة.");
+                item.DistrictId = dto.DistrictId.Value;
+            }
+
+            if (dto.PropertyTypeId.HasValue)
+            {
+                if (dto.PropertyTypeId.Value <= 0)
+                    throw new InvalidOperationException("رقم نوع العقار غير صالح.");
+                var propertyTypeExists = await context.PropertyTypes.AnyAsync(pt => pt.Id == dto.PropertyTypeId.Value);
+                if (!propertyTypeExists)
+                    throw new InvalidOperationException($"نوع العقار {dto.PropertyTypeId.Value} غير موجود.");
+                item.PropertyTypeId = dto.PropertyTypeId.Value;
+            }
+
+            if (dto.StatusId.HasValue)
+            {
+                if (dto.StatusId.Value <= 0)
+                    throw new InvalidOperationException("رقم الحالة غير صالح.");
+                var statusExists = await context.Statuses.AnyAsync(s => s.Id == dto.StatusId.Value);
+                if (!statusExists)
+                    throw new InvalidOperationException($"الحالة {dto.StatusId.Value} غير موجودة.");
+                item.StatusId = dto.StatusId.Value;
+            }
+
+            if (dto.AdvertiseNo.HasValue)
+            {
+                if (dto.AdvertiseNo.Value <= 0)
+                    throw new InvalidOperationException("رقم الإعلان غير صالح.");
+                item.AdvertiseNo = dto.AdvertiseNo.Value;
+            }
+
+            if (dto.AdNo.HasValue)
+            {
+                if (dto.AdNo.Value <= 0)
+                    throw new InvalidOperationException("رقم الإعلان الفرعي غير صالح.");
+                item.AdNo = dto.AdNo.Value;
+            }
+
+
+            if (dto.MyTypeId.HasValue)
+            {
+                if (dto.MyTypeId.Value <= 0)
+                    throw new InvalidOperationException("رقم النوع غير صالح.");
+                var typeExists = await context.Types.AnyAsync(t => t.Id == dto.MyTypeId.Value);
+                if (!typeExists)
+                    throw new InvalidOperationException($"النوع {dto.MyTypeId.Value} غير موجود.");
+                item.MyTypeId = dto.MyTypeId.Value;
+            }
             if (dto.Image is not null)
             {
                 if (!string.IsNullOrEmpty(item.Image))

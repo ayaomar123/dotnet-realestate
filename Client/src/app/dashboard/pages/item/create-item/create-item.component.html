@@ -1,189 +1,305 @@
-<div class="mx-auto p-4">
-    <div class="bg-white rounded-lg shadow border border-gray-200 overflow-hidden">
-        <!-- Title -->
-        <div class="px-6 py-4 flex items-center justify-between">
-            <h2 class="text-lg font-semibold text-gray-800">Create Item</h2>
-        </div>
+<div class="w-full max-w-5xl mx-auto p-4">
+    <!-- Tabs Headers -->
+    <div class="flex flex-wrap gap-2 mb-4">
+        <button (click)="activeTab = 'main'" [ngClass]="{
+          'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow ':
+            activeTab === 'main',
+          'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50':
+            activeTab !== 'main'
+        }" class="rounded-lg flex items-center gap-2 px-5 py-2 font-semibold text-sm md:text-base transition">
+            <span>Main Info</span>
+        </button>
 
-        <div class="overflow-x-auto">
-            <!-- Grid -->
-            <form [formGroup]="form" class="grid grid-cols-1 md:grid-cols-2 gap-4 px-4">
+        <button (click)="activeTab = 'details'" [ngClass]="{
+          'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow ':
+            activeTab === 'details',
+          'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50':
+            activeTab !== 'details'
+        }" class="rounded-lg flex items-center gap-2 px-5 py-2 font-semibold text-sm md:text-base transition">
+            <span>Details</span>
+        </button>
 
-                <!-- Name En -->
+        <button (click)="activeTab = 'location'" [ngClass]="{
+          'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow ':
+            activeTab === 'location',
+          'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50':
+            activeTab !== 'location'
+        }" class="rounded-lg flex items-center gap-2 px-5 py-2 font-semibold text-sm md:text-base transition">
+            <span>Location</span>
+        </button>
+    </div>
+
+    <!-- Tabs Content Card -->
+    <form [formGroup]="form" (ngSubmit)="saveAll()">
+        <div class="bg-white  border border-gray-200 shadow-sm p-6" [formGroup]="form">
+            <!-- Main Info Tab -->
+            <div *ngIf="activeTab === 'main'" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="md:col-span-2">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Image</label>
+                    <app-image-upload (fileSelected)="onImageSelected($event)"></app-image-upload>
+                </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Name (English)</label>
                     <input formControlName="nameEn" type="text"
-                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <div *ngIf="form.get('nameEn')?.invalid && form.get('nameEn')?.touched"
+                        class="text-xs text-red-600 mt-1">
+                        هذا الحقل مطلوب
+                    </div>
                 </div>
 
-                <!-- Name Ar -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Name (Arabic)</label>
                     <input formControlName="nameAr" type="text"
-                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <div *ngIf="form.get('nameAr')?.invalid && form.get('nameAr')?.touched"
+                        class="text-xs text-red-600 mt-1">
+                        هذا الحقل مطلوب
+                    </div>
                 </div>
 
-                <!-- CategoryId -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Category</label>
-                    <input formControlName="categoryId" type="number"
-                        class="w-full border border-gray-300 rounded px-3 py-2">
-                </div>
-
-                <!-- CityId -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">City</label>
-                    <input formControlName="cityId" type="number"
-                        class="w-full border border-gray-300 rounded px-3 py-2">
-                </div>
-
-                <!-- DistrictId -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">District</label>
-                    <input formControlName="districtId" type="number"
-                        class="w-full border border-gray-300 rounded px-3 py-2">
-                </div>
-
-                <!-- MyTypeId -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">My Type</label>
-                    <input formControlName="myTypeId" type="number"
-                        class="w-full border border-gray-300 rounded px-3 py-2">
-                </div>
-
-                <!-- PropertyTypeId -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Property Type</label>
-                    <input formControlName="propertyTypeId" type="number"
-                        class="w-full border border-gray-300 rounded px-3 py-2">
-                </div>
-
-                <!-- StatusId -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Status</label>
-                    <input formControlName="statusId" type="number"
-                        class="w-full border border-gray-300 rounded px-3 py-2">
-                </div>
-
-                <!-- Advertise No -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Advertise No</label>
                     <input formControlName="advertiseNo" type="number"
-                        class="w-full border border-gray-300 rounded px-3 py-2">
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <div *ngIf="form.get('advertiseNo')?.invalid && form.get('advertiseNo')?.touched"
+                        class="text-xs text-red-600 mt-1">
+                        هذا الحقل مطلوب
+                    </div>
                 </div>
 
-                <!-- Ad No -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Ad No</label>
-                    <input formControlName="adNo" type="number" class="w-full border border-gray-300 rounded px-3 py-2">
+                    <input formControlName="adNo" type="number"
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <div *ngIf="form.get('adNo')?.invalid && form.get('adNo')?.touched"
+                        class="text-xs text-red-600 mt-1">
+                        هذا الحقل مطلوب
+                    </div>
                 </div>
 
-                <!-- Latitude -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Latitude</label>
-                    <input formControlName="latitude" type="number"
-                        class="w-full border border-gray-300 rounded px-3 py-2">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Description (English)</label>
+                    <textarea rows="3" formControlName="descriptionEn"
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    <div *ngIf="form.get('descriptionEn')?.invalid && form.get('descriptionEn')?.touched"
+                        class="text-xs text-red-600 mt-1">
+                        هذا الحقل مطلوب
+                    </div>
                 </div>
 
-                <!-- Longitude -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Longitude</label>
-                    <input formControlName="longitude" type="number"
-                        class="w-full border border-gray-300 rounded px-3 py-2">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Description (Arabic)</label>
+                    <textarea rows="3" formControlName="descriptionEn"
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    <div *ngIf="form.get('descriptionAr')?.invalid && form.get('descriptionAr')?.touched"
+                        class="text-xs text-red-600 mt-1">
+                        هذا الحقل مطلوب
+                    </div>
                 </div>
 
-                <!-- Soum -->
+            </div>
+
+            <div *ngIf="activeTab === 'main'" class="mt-6 flex justify-end">
+                <button type="button" (click)="goToNextTab()"
+                    class="bg-blue-600 text-white px-6 rounded-lg py-2 hover:bg-blue-700 transition">
+                    Next
+                </button>
+            </div>
+
+            <!-- Details Tab -->
+            <div *ngIf="activeTab === 'details'" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                    <select formControlName="categoryId"
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option [ngValue]="null">اختر</option>
+                        <option *ngFor="let c of categories" [ngValue]="c.id">{{ c.nameEn }}</option>
+                    </select>
+                    <div *ngIf="form.get('categoryId')?.invalid && form.get('categoryId')?.touched"
+                        class="text-xs text-red-600 mt-1">
+                        هذا الحقل مطلوب
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Type</label>
+                    <select formControlName="typeId"
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option [ngValue]="null">اختر</option>
+                        <option *ngFor="let t of types" [ngValue]="t.id">{{ t.nameEn }}</option>
+                    </select>
+                    <div *ngIf="form.get('typeId')?.invalid && form.get('typeId')?.touched"
+                        class="text-xs text-red-600 mt-1">
+                        هذا الحقل مطلوب
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Property Type</label>
+                    <select formControlName="propertyTypeId"
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option [ngValue]="null">اختر</option>
+                        <option *ngFor="let pt of propertyTypes" [ngValue]="pt.id">{{ pt.nameEn }}</option>
+                    </select>
+                    <div *ngIf="form.get('propertyTypeId')?.invalid && form.get('propertyTypeId')?.touched"
+                        class="text-xs text-red-600 mt-1">
+                        هذا الحقل مطلوب
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                    <select formControlName="statusId"
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option [ngValue]="null">اختر</option>
+                        <option *ngFor="let s of statuses" [ngValue]="s.id">{{ s.nameEn }}</option>
+                    </select>
+                    <div *ngIf="form.get('statusId')?.invalid && form.get('statusId')?.touched"
+                        class="text-xs text-red-600 mt-1">
+                        هذا الحقل مطلوب
+                    </div>
+                </div>
+
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Soum</label>
-                    <input formControlName="soum" type="number" class="w-full border border-gray-300 rounded px-3 py-2">
+                    <input formControlName="soum" type="number"
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <div *ngIf="form.get('soum')?.invalid && form.get('soum')?.touched"
+                        class="text-xs text-red-600 mt-1">
+                        هذا الحقل مطلوب
+                    </div>
                 </div>
 
-                <!-- Limit -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Limit</label>
                     <input formControlName="limit" type="number"
-                        class="w-full border border-gray-300 rounded px-3 py-2">
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <div *ngIf="form.get('limit')?.invalid && form.get('limit')?.touched"
+                        class="text-xs text-red-600 mt-1">
+                        هذا الحقل مطلوب
+                    </div>
                 </div>
 
-                <!-- Street Width -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Street Width</label>
                     <input formControlName="streetWidth" type="number"
-                        class="w-full border border-gray-300 rounded px-3 py-2">
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <div *ngIf="form.get('streetWidth')?.invalid && form.get('streetWidth')?.touched"
+                        class="text-xs text-red-600 mt-1">
+                        هذا الحقل مطلوب
+                    </div>
                 </div>
 
-                <!-- Space -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Space</label>
                     <input formControlName="space" type="number"
-                        class="w-full border border-gray-300 rounded px-3 py-2">
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <div *ngIf="form.get('space')?.invalid && form.get('space')?.touched"
+                        class="text-xs text-red-600 mt-1">
+                        هذا الحقل مطلوب
+                    </div>
                 </div>
 
-                <!-- Price Per Meter -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Price per Meter</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Price / 1m</label>
                     <input formControlName="pricePerMeter" type="number"
-                        class="w-full border border-gray-300 rounded px-3 py-2">
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <div *ngIf="form.get('pricePerMeter')?.invalid && form.get('pricePerMeter')?.touched"
+                        class="text-xs text-red-600 mt-1">
+                        هذا الحقل مطلوب
+                    </div>
                 </div>
 
-                <!-- Description En -->
-                <div class="md:col-span-2">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Description (English)</label>
-                    <textarea formControlName="descriptionEn"
-                        class="w-full border border-gray-300 rounded px-3 py-2"></textarea>
-                </div>
-
-                <!-- Description Ar -->
-                <div class="md:col-span-2">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Description (Arabic)</label>
-                    <textarea formControlName="descriptionAr"
-                        class="w-full border border-gray-300 rounded px-3 py-2"></textarea>
-                </div>
-
-                <!-- Has Units -->
-                <div class="flex items-center space-x-2">
-                    <input formControlName="hasUnits" type="checkbox" class="w-5 h-5">
-                    <label class="text-sm text-gray-700">Has Units</label>
-                </div>
-
-                <!-- Range From -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Range From</label>
-                    <input formControlName="rengeFrom" type="number"
-                        class="w-full border border-gray-300 rounded px-3 py-2">
-                </div>
-
-                <!-- Range To -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Range To</label>
-                    <input formControlName="rangeTo" type="number"
-                        class="w-full border border-gray-300 rounded px-3 py-2">
-                </div>
-
-                <!-- Has Password -->
-                <div class="flex items-center space-x-2">
-                    <input formControlName="hasPassword" type="checkbox" class="w-5 h-5">
-                    <label class="text-sm text-gray-700">Has Password</label>
-                </div>
-
-                <!-- Hash Password -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Password Hash</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
                     <input formControlName="hashPassword" type="text"
-                        class="w-full border border-gray-300 rounded px-3 py-2">
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <small class="text-gray-400">Leave Empty if there is no password</small>
                 </div>
-            </form>
 
-            <!-- Save Button -->
-            <div class="flex justify-end px-4 py-3">
-                <button (click)="onSubmit()"
-                    class="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded shadow transition">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    Save Item
+                <!-- Checkbox: Has Units -->
+                <div>
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" formControlName="hasUnits"
+                            class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" />
+                        <span class="ml-2 text-sm font-medium text-gray-700">Has Units</span>
+                    </label>
+                </div>
+
+                <!-- Range Fields: Show only if Has Units is checked -->
+                <div *ngIf="form.get('hasUnits')?.value" class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Range From</label>
+                        <input type="number" formControlName="rangeFrom"
+                            class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Range To</label>
+                        <input type="number" formControlName="rangeTo"
+                            class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div *ngIf="activeTab === 'details'" class="mt-6 flex justify-end">
+                <button type="button" (click)="goToNextTab()"
+                    class="bg-blue-600 text-white px-6 rounded-lg py-2 hover:bg-blue-700 transition">
+                    Next
+                </button>
+            </div>
+
+            <!-- Location Tab -->
+            <div *ngIf="activeTab === 'location'" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">City</label>
+                    <select formControlName="cityId"
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option [ngValue]="null">اختر</option>
+                        <option *ngFor="let c of cities" [ngValue]="c.id">{{ c.nameEn }}</option>
+                    </select>
+                    <div *ngIf="form.get('cityId')?.invalid && form.get('cityId')?.touched"
+                        class="text-xs text-red-600 mt-1">
+                        هذا الحقل مطلوب
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">District</label>
+                    <select formControlName="districtId"
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option [ngValue]="null">اختر</option>
+                        <option *ngFor="let d of districts" [ngValue]="d.id">{{ d.nameEn }}</option>
+                    </select>
+                    <div *ngIf="form.get('districtId')?.invalid && form.get('districtId')?.touched"
+                        class="text-xs text-red-600 mt-1">
+                        هذا الحقل مطلوب
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Latitude</label>
+                    <input formControlName="latitude" type="number"
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Longitude</label>
+                    <input formControlName="longitude" type="number"
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+
+                <div class="md:col-span-2">
+                    <app-google-map (coordinatesSelected)="updateCoordinates($event)"></app-google-map>
+                </div>
+            </div>
+
+            <div *ngIf="activeTab === 'location'" class="mt-6 flex justify-end">
+                <button type="button" (click)="saveAll()" [disabled]="form.invalid"
+                    class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition disabled:opacity-50 disabled:cursor-not-allowed">
+                    Submit
                 </button>
             </div>
         </div>
-    </div>
+    </form>
 </div>

@@ -38,10 +38,10 @@ namespace Realestate.DTOs.Item
         [Required]
         public int AdNo { get; set; }
 
-        [Required]
+        //[Required]
         public double Latitude { get; set; }
 
-        [Required]
+        //[Required]
         public double Longitude { get; set; }
 
         public double Soum { get; set; }
@@ -77,8 +77,8 @@ namespace Realestate.DTOs.Item
         {
             if (HasUnits)
             {
-                if (RengeFrom <= 0)
-                    yield return new ValidationResult("RengeFrom is required.", new[] { nameof(RengeFrom) });
+                //if (RengeFrom <= 0)
+                  //  yield return new ValidationResult("RengeFrom is required.", new[] { nameof(RengeFrom) });
 
                 if (RangeTo <= RengeFrom)
                     yield return new ValidationResult("RangeTo must be greater than RengeFrom.", new[] { nameof(RangeTo) });
