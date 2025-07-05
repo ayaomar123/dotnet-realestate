@@ -1,13 +1,22 @@
-import { CategoryComponent } from './dashboard/pages/category/category.component';
 import { Routes } from '@angular/router';
 import { authGuard, accountGuard } from './core/auth/guards';
 import { LayoutComponent } from './dashboard/components/layout/layout.component';
+import { FrontLayoutComponent } from './frontend/components/front-layout/front-layout.component';
 
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'admin/home',
-        pathMatch: 'full'
+        component: FrontLayoutComponent,
+        children: [
+            {
+                path: '',
+                loadComponent: () => import('./frontend/pages/home/home.component').then(mod => mod.HomeComponent),
+            },
+            {
+                path: 'item/:id',
+                loadComponent: () => import('./frontend/pages/details/details.component').then(mod => mod.DetailsComponent),
+            }
+        ]
     },
     {
         path: 'admin',
@@ -62,4 +71,5 @@ export const routes: Routes = [
         loadComponent: () => import('./core/auth/login/pages/login-page/login-page.component').then(mod => mod.LoginPageComponent),
         canActivate: [accountGuard]
     }
+
 ];

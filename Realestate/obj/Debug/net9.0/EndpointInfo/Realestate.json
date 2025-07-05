@@ -816,6 +816,13 @@
             }
           },
           {
+            "name": "IsActive",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
             "name": "PageNumber",
             "in": "query",
             "schema": {
@@ -1060,8 +1067,8 @@
         }
       }
     },
-    "/api/Item/status/{id}": {
-      "put": {
+    "/api/Item/{id}": {
+      "get": {
         "tags": [
           "Item"
         ],
@@ -1081,9 +1088,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Item/{id}": {
+      },
       "patch": {
         "tags": [
           "Item"
@@ -1305,6 +1310,29 @@
         }
       },
       "delete": {
+        "tags": [
+          "Item"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Item/status/{id}": {
+      "put": {
         "tags": [
           "Item"
         ],

@@ -22,6 +22,8 @@ export interface Item {
 
     statusId: number;
     statusName?: string;
+    statusColor?: string;
+    statusBackgroundColor?: string;
 
     advertiseNo: number;
     adNo: number;

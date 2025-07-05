@@ -1,0 +1,45 @@
+<nav class="bg-white shadow-lg fixed w-full top-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <!-- Logo Image -->
+            <a routerLink="/" class="flex items-center">
+                <img src="https://t3.ftcdn.net/jpg/08/38/58/42/360_F_838584205_dDGwNQ1xJ8GsilZONeQwwM260WoyjNx2.jpg?auto=format&fit=crop&w=100&q=80"
+                    alt="Logo" class="h-10 w-auto" />
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:block">
+                <div class="ml-10 flex items-baseline space-x-8">
+                    <a routerLink="/"
+                        class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">Home</a>
+                    <a href="#listings"
+                        class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">Listings</a>
+                    <a href="#agents"
+                        class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">Agents</a>
+                    <a href="#contact"
+                        class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">Contact</a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button (click)="isMobileMenuOpen = !isMobileMenuOpen"
+                    class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div *ngIf="isMobileMenuOpen" class="md:hidden bg-white border-t">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a routerLink="/" class="text-gray-900 hover:text-blue-600 block px-3 py-2 text-base font-medium">Home</a>
+            <a href="#listings"
+                class="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium">Listings</a>
+            <a href="#agents" class="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium">Agents</a>
+            <a href="#contact"
+                class="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium">Contact</a>
+        </div>
+    </div>
+</nav>

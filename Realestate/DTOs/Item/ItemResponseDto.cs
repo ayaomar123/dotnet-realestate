@@ -19,6 +19,8 @@
         public string? PropertyTypeName { get; set; }
         public int StatusId { get; set; }
         public string? StatusName { get; set; }
+        public string? StatusColor { get; set; }
+        public string? StatusBackgroundColor { get; set; }
 
         public int AdvertiseNo { get; set; }
 

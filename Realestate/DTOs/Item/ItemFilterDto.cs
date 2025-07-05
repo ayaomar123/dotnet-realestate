@@ -13,5 +13,6 @@ namespace Realestate.DTOs.Item
         public string? Keyword { get; set; }
         public int? AdNo { get; set; }
         public int? AdvertiseNo { get; set; }
+        public bool? IsActive { get; set; }
     }
 }

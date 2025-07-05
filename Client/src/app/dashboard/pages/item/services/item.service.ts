@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpContext } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../../environments/environment';
@@ -10,6 +10,8 @@ import { Type } from '../../type/interfaces/type';
 import { PropertyType } from '../../property-type/interfaces/property-type';
 import { District } from '../../district/interfaces/district';
 import { Status } from '../../status/interfaces/status';
+import { IS_PUBLIC } from '../../../../core/auth/auth.interceptor';
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +22,11 @@ export class ItemService {
   private readonly url = `${environment.apiUrl}`;
 
   get(): Observable<General<PaginatedResponse<Item>>> {
-    return this.http.get<General<PaginatedResponse<Item>>>(this.apiUrl);
+    return this.http.get<General<PaginatedResponse<Item>>>(this.apiUrl, { context: new HttpContext().set(IS_PUBLIC, true) });
+  }
+
+  getById(id: number): Observable<General<Item>> {
+    return this.http.get<General<Item>>(`${this.apiUrl}/${id}`, { context: new HttpContext().set(IS_PUBLIC, true) });
   }
 
   getCategories(): Observable<General<Category[]>> {

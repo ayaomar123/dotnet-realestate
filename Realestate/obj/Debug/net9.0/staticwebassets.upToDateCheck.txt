@@ -14,3 +14,5 @@ wwwroot\images\property_types\b9ab8bdb-9637-4bb9-8f72-f6d80b6eae9e.jpg
 wwwroot\images\property_types\9e4c198e-7a17-4052-8272-1ab56a453bf0.jpg
 wwwroot\images\statuses\ded47b43-dd40-4abb-a9f4-34bd1bdac972.jpg
 wwwroot\images\items\2ea3789d-ea8c-41d4-8a67-8d67c056eeab.jpg
+wwwroot\images\items\f289bba6-4a64-4eec-b89f-88f14b4102fb.jpg
+wwwroot\images\items\ee2e5bc8-2e98-476e-8d14-b1e7a549dc0a.jpg

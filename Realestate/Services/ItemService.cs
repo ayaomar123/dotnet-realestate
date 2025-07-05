@@ -44,6 +44,9 @@ namespace Realestate.Services
             if (filter.AdvertiseNo.HasValue)
                 query = query.Where(i => i.AdvertiseNo == filter.AdvertiseNo.Value);
 
+            if (filter.IsActive.HasValue)
+                query = query.Where(i => i.IsActive == filter.IsActive.Value);
+
             if (!string.IsNullOrWhiteSpace(filter.Keyword))
                 query = query.Where(i =>
                     i.NameEn!.Contains(filter.Keyword) ||
@@ -65,6 +68,24 @@ namespace Realestate.Services
             return new PaginatedResponse<ItemResponseDto>(mapped, totalCount, filter.PageNumber, filter.PageSize);
         }
 
+
+        public async Task<ItemResponseDto> Show(int id)
+        {
+            var item = await context.Items
+                .Include(o => o.Category)
+                .Include(o => o.District)
+                .Include(o => o.City)
+                .Include(o => o.MyType)
+                .Include(o => o.PropertyType)
+                .Include(o => o.Status)
+                .Include(o => o.Images)
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+
+            var mapped = mapper.Map<ItemResponseDto>(item);
+
+            return mapped;
+        }
 
 
         public async Task<ItemResponseDto> CreateAsync(ItemRequestDto dto)

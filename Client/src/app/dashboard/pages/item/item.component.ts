@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Component, inject, OnInit } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { General } from '../../../shared/interfaces/General';
@@ -15,7 +15,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './item.component.html',
   styleUrl: './item.component.css'
 })
-export class ItemComponent {
+export class ItemComponent implements OnInit {
   private readonly service = inject(ItemService);
   private readonly fb = inject(FormBuilder);
   private readonly toastr = inject(NotificationService);

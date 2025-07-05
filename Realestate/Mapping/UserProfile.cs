@@ -61,6 +61,8 @@ namespace Realestate.Mapping
                 .ForMember(dest => dest.MyTypeName, opt => opt.MapFrom(src => src.MyType != null ? src.MyType.NameEn : null))
                 .ForMember(dest => dest.PropertyTypeName, opt => opt.MapFrom(src => src.PropertyType != null ? src.PropertyType.NameEn : null))
                 .ForMember(dest => dest.StatusName, opt => opt.MapFrom(src => src.Status != null ? src.Status.NameEn : null))
+                .ForMember(dest => dest.StatusColor, opt => opt.MapFrom(src => src.Status != null ? src.Status.Color : null))
+                .ForMember(dest => dest.StatusBackgroundColor, opt => opt.MapFrom(src => src.Status != null ? src.Status.BackgroundColor : null))
                 .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images.Select(i => i.ImageUrl)));
             ;
         }

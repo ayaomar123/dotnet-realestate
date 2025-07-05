@@ -17,6 +17,13 @@ namespace Realestate.Controllers
             return Ok(ApiResponse<PaginatedResponse<ItemResponseDto>>.Ok(result, "Fetched Successfully"));
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Show(int id)
+        {
+            var result = await service.Show(id);
+            return Ok(ApiResponse<ItemResponseDto>.Ok(result, "Fetched Successfully"));
+        }
+
 
 
         [HttpPost]
